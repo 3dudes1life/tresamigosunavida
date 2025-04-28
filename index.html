@@ -1,247 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
-  <meta property="og:title" content="Tres Amigos, Una Vida" />
-  <meta property="og:description" content="A throuple love story about three hearts, one connection, and rewriting what love looks like." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
-  <meta property="og:url" content="https://tresamigosunavida.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tres Amigos, Una Vida</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at top, #ffffff11 0%, transparent 70%), url('https://www.transparenttextures.com/patterns/waves.png');
-      background-size: 400px 400px;
-      opacity: 0.05;
-      z-index: -2;
-      animation: gradientShift 20s ease-in-out infinite alternate;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0 0; }
-      100% { background-position: 100px 50px; }
-    }
-    body {
-  margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(to bottom, #ff6b6b, #fcd34d);
-  color: #222;
-  text-align: center;
-}
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    nav a {
-      color: #222;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #ff6b6b;
-    }
-    h1, h2, h3, p, img {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    .visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      margin: 1rem 0 0.3rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin: 2rem 0 1rem;
-    }
-    h3 {
-      font-size: 1.25rem;
-      margin: 1rem 0 0.5rem;
-    }
-    img.cover {
-      max-width: 320px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-      background-color: #fff;
-      margin-bottom: 1.5rem;
-    }
-    img.icon {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-    p {
-      max-width: 540px;
-      margin: 0 auto 1.5rem;
-      font-size: 1.1rem;
-    }
-    .wave-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/waves.png');
-      background-size: 400px 400px;
-      opacity: 0.08;
-      z-index: -1;
-      animation: waveMotion 15s linear infinite alternate;
-    }
-    @keyframes waveMotion {
-      0% { background-position: 0 0; }
-      100% { background-position: 200px 100px; }
-    }
-    .section {
-      padding: 4rem 1rem;
-    }
-    .section:nth-of-type(even) {
-      background: rgba(255,255,255,0.15);
-      border-radius: 1rem;
-    }
-    .socials a {
-      margin: 0 12px;
-      color: #222;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    .socials a:hover {
-      color: #ff6b6b;
-    }
-    .author-note {
-      font-style: italic;
-      color: #333;
-      line-height: 1.6;
-    }
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #fff;
-      color: #222;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      font-size: 20px;
-      display: none;
-      z-index: 999;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres Amigos, Una Vida - Links</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .logo {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .logo img {
+            max-width: 150px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        p.tagline {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .links {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .links a {
+            background: white;
+            color: #333;
+            text-decoration: none;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .links a:hover {
+            background: #f7c4c9;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-  <section id="hero" style="aspect-ratio: 16/9; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: url('https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/refs/heads/main/ChatGPT%20Image%20Mar%2026%2C%202025%2C%2012_29_19%20PM.png') no-repeat center center / cover; text-align: center; padding: 4rem 1rem;">
-    <h1 style="font-size: 3.5rem; color: white; text-shadow: 2px 2px 6px #000; margin-bottom: 1rem; font-family: 'Dancing Script', cursive;">Tres Amigos, Una Vida</h1>
-    <p style="font-size: 1.25rem; color: white; max-width: 640px; text-shadow: 1px 1px 4px #000;">A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
-  </section>
 
-  <div class="wave-bg"></div>
-  <nav>
-  <a href="#home">Home</a>
-  <a href="#trio">Meet the Trio</a>
-  <a href="#behind">Behind the Book</a>
-  <a href="#about">About the Authors</a>
-</nav>
-
-  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
-
-  <div id="home" class="section">
-    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Tres Amigos, Una Vida Book Cover" />
+<div class="logo">
+    <!-- Optional Logo Image -->
+    <!-- <img src="path_to_your_logo.png" alt="Tres Amigos, Una Vida"> -->
     <h1>Tres Amigos, Una Vida</h1>
-    <h2>A Throuple Love Story</h2>
-    <p><em>Three hearts. One connection. A love story that doesn’t follow the rules.</em></p>
-    <p>Coming Soon in 2025 — a story about love, chosen family, and the unexpected journey to finding home together.</p>
-    <div class="socials">
-      <a href="https://instagram.com/tresamigosunavida" target="_blank">Instagram</a>
-      <a href="https://www.threads.net/@tresamigosunavida" target="_blank">Threads</a>
-      <a href="mailto:tresamigosunavida@gmail.com">Email</a>
-    </div>
-  </div>
+</div>
 
-  <div id="trio" class="section">
-    <h2>Meet the Trio</h2>
-    <div>
-      <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/cowboy_head.png" alt="Cowboy Silhouette Head">
-      <h3>The Cowboy</h3>
-      <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
-    </div>
-    <div>
-      <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/artist_head.png" alt="Artist Silhouette Head">
-      <h3>The Artist</h3>
-      <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
-    </div>
-    <div>
-      <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/visionary_head.png" alt="Visionary Silhouette Head">
-      <h3>The Visionary</h3>
-      <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
-    </div>
-  </div>
+<p class="tagline">Our journey. Our love story. Our life.</p>
 
-  <div id="behind" class="section">
-    <h2>Behind the Book</h2>
-    <p class="author-note">
-      This story was born from the belief that love is limitless and layered. It’s not about perfection—it’s about connection. We’ve poured our hearts into these pages hoping it reflects what love can truly look like when you let it grow on its own terms.
-    </p>
-  </div>
+<div class="links">
+    <a href="https://www.instagram.com/3dudes1life" target="_blank">Instagram</a>
+    <a href="https://tresamigosunavida.com" target="_blank">Official Website</a>
+    <a href="https://your-amazon-link.com" target="_blank">Pre-Order the Book</a>
+    <a href="https://blog.3dudes1life.com" target="_blank">Our Blog</a>
+    <a href="mailto:contact@tresamigosunavida.com">Contact Us</a>
+</div>
 
-  <div id="about" class="section">
-    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dudes1lifeWebIcon2024%20copy.png" alt="3 Dudes 1 Life Icon" style="max-width: 180px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); margin-bottom: 2rem;">
-    <h2>About the Authors</h2>
-    <p><strong>D.C.W. = Daniel, Caleb, and Will have been building a life together for nearly a decade.</strong></p>
-    <p>As a real-life throuple, they’ve shared everything from wild travel adventures and cozy Sunday breakfasts to owning a business, raising two lovable dogs, and maybe even cohabiting with a ghost (their house definitely has vibes).</p>
-    <p>Together, they created <em>Tres Amigos, Una Vida</em> to celebrate the ups, downs, and deep connection found in loving more than one person at a time. They hope their stories inspire others to embrace their truth, redefine relationships on their own terms, and never settle for anything less than magic.</p>
-    <p>When they're not writing, you can find them working in their virtual studio, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
-    <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
-  </div>
+<footer>
+    &copy; 2025 Tres Amigos, Una Vida
+</footer>
 
-  <script>
-    const elements = document.querySelectorAll('h1, h2, h3, p, img');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-    elements.forEach(el => observer.observe(el));
-
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-  </script>
 </body>
 </html>
