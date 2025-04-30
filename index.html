@@ -16,25 +16,11 @@
       scroll-behavior: smooth;
       height: 100%;
     }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at top, #ffffff11 0%, transparent 70%), url('https://www.transparenttextures.com/patterns/waves.png');
-      background-size: 400px 400px;
-      opacity: 0.05;
-      z-index: -2;
-      animation: gradientShift 20s ease-in-out infinite alternate;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0 0; }
+    
+    
       100% { background-position: 100px 50px; }
     }
-    @keyframes waveMotion {
-      0% { background-position: 0 0; }
+    
       100% { background-position: 200px 100px; }
     }
     body {
@@ -109,18 +95,7 @@
       margin: 0 auto 1.5rem;
       font-size: 1.1rem;
     }
-    .wave-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/waves.png');
-      background-size: 400px 400px;
-      opacity: 0.08;
-      z-index: -1;
-      animation: waveMotion 15s linear infinite alternate;
-    }
+    
     .section {
       padding: 4rem 1rem;
     }
@@ -162,4 +137,4 @@
   </style>
 </head>
 <body>
-  <div class="wave-bg"></div>
+  
