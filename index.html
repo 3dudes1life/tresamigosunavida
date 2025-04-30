@@ -13,8 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     html {
-      scroll-behavior: smooth;
-    }
+  scroll-behavior: smooth;
+  height: 100%;
+}
     body::before {
       content: "";
       position: fixed;
@@ -38,6 +39,9 @@
   background: linear-gradient(to bottom, #ff6b6b, #fcd34d);
   color: #222;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
     nav {
       position: fixed;
@@ -244,7 +248,7 @@
     });
   </script>
 
-  <footer style="padding: 2rem 1rem; background: transparent; text-align: center;">
+  <footer style="margin-top: auto; padding: 2rem 1rem; background: transparent; text-align: center;">
   <img src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dude1life%20creative_black.png" alt="3Dudes1Life Creative Logo" style="max-width: 120px; margin-bottom: 1rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));" />
   <p style="font-size: 0.85rem; color: #333; margin-top: 0.5rem;">&copy; 2025 3Dudes1Life Creative. All rights reserved.</p>
 </footer>
