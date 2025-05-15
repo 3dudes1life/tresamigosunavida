@@ -14,31 +14,15 @@
   <style>
     html {
       scroll-behavior: smooth;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
       height: 100%;
-      background: radial-gradient(circle at top, #ffffff11 0%, transparent 70%), url('https://www.transparenttextures.com/patterns/waves.png');
-      background-size: 400px 400px;
-      opacity: 0.05;
-      z-index: -2;
-      animation: gradientShift 20s ease-in-out infinite alternate;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0 0; }
-      100% { background-position: 100px 50px; }
     }
     body {
-  margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(to bottom, #ff6b6b, #fcd34d);
-  color: #222;
-  text-align: center;
-}
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ff6b6b, #fcd34d);
+      color: #222;
+      text-align: center;
+    }
     nav {
       position: fixed;
       top: 0;
@@ -92,33 +76,17 @@
       margin-bottom: 1.5rem;
     }
     img.icon {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
     p {
       max-width: 540px;
       margin: 0 auto 1.5rem;
       font-size: 1.1rem;
-    }
-    .wave-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/waves.png');
-      background-size: 400px 400px;
-      opacity: 0.08;
-      z-index: -1;
-      animation: waveMotion 15s linear infinite alternate;
-    }
-    @keyframes waveMotion {
-      0% { background-position: 0 0; }
-      100% { background-position: 200px 100px; }
     }
     .section {
       padding: 4rem 1rem;
@@ -161,18 +129,12 @@
   </style>
 </head>
 <body>
-  <section id="hero" style="aspect-ratio: 16/9; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: url('https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/refs/heads/main/ChatGPT%20Image%20Mar%2026%2C%202025%2C%2012_29_19%20PM.png') no-repeat center center / cover; text-align: center; padding: 4rem 1rem;">
-    <h1 style="font-size: 3.5rem; color: white; text-shadow: 2px 2px 6px #000; margin-bottom: 1rem; font-family: 'Dancing Script', cursive;">Tres Amigos, Una Vida</h1>
-    <p style="font-size: 1.25rem; color: white; max-width: 640px; text-shadow: 1px 1px 4px #000;">A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
-  </section>
-
-  <div class="wave-bg"></div>
   <nav>
-  <a href="#home">Home</a>
-  <a href="#trio">Meet the Trio</a>
-  <a href="#behind">Behind the Book</a>
-  <a href="#about">About the Authors</a>
-</nav>
+    <a href="#home">Home</a>
+    <a href="#trio">Meet the Trio</a>
+    <a href="#behind">Behind the Book</a>
+    <a href="#about">About the Authors</a>
+  </nav>
 
   <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
@@ -182,12 +144,11 @@
     <h2>A Throuple Love Story</h2>
     <p><em>Three hearts. One connection. A love story that doesn’t follow the rules.</em></p>
     <p>Coming Soon in 2025 — a story about love, chosen family, and the unexpected journey to finding home together.</p>
-<div class="socials">
-  <a href="https://instagram.com/tresamigosunavida" target="_blank">Instagram</a>
-  <a href="https://www.facebook.com/tresamigosunavida" target="_blank">Facebook</a>
-  <a href="https://www.threads.net/@tresamigosunavida" target="_blank">Threads</a>
-  <a href="mailto:tresamigosunavida@gmail.com">Email</a>
-</div>
+    <div class="socials">
+      <a href="https://instagram.com/tresamigosunavida" target="_blank">Instagram</a>
+      <a href="https://www.threads.net/@tresamigosunavida" target="_blank">Threads</a>
+      <a href="mailto:tresamigosunavida@gmail.com">Email</a>
+    </div>
   </div>
 
   <div id="trio" class="section">
@@ -222,7 +183,7 @@
     <p><strong>D.C.W. = Daniel, Caleb, and Will have been building a life together for nearly a decade.</strong></p>
     <p>As a real-life throuple, they’ve shared everything from wild travel adventures and cozy Sunday breakfasts to owning a business, raising two lovable dogs, and maybe even cohabiting with a ghost (their house definitely has vibes).</p>
     <p>Together, they created <em>Tres Amigos, Una Vida</em> to celebrate the ups, downs, and deep connection found in loving more than one person at a time. They hope their stories inspire others to embrace their truth, redefine relationships on their own terms, and never settle for anything less than magic.</p>
-    <p>When they're not writing, you can find them working in their garden, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
+    <p>When they're not writing, you can find them working in their virtual studio, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
     <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
   </div>
 
@@ -244,5 +205,12 @@
       backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
   </script>
-</body>
-</html>
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1525077');
+  </script>
+  <!-- End MailerLite Universal -->
