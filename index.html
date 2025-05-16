@@ -172,6 +172,7 @@
   <a href="#trio">Meet the Trio</a>
   <a href="#behind">Behind the Book</a>
   <a href="#about">About the Authors</a>
+  <a href="#giveaway">Giveaway</a>
 </nav>
 
   <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
@@ -226,6 +227,25 @@
     <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
   </div>
 
+  <div id="giveaway" class="section" style="position: relative;">
+  <h2 style="font-size: 2rem; color: #222;">🎉 Enter Our Giveaway!</h2>
+  <p class="author-note" style="font-size: 1.1rem;">Be part of the journey — sign up for a chance to win a free copy of <em>Tres Amigos, Una Vida</em> and join the throuple’s love story before it even hits the shelves.</p>
+  <p style="font-weight: bold; color: #ff6b6b; font-size: 1rem;">Winners will be announced via email during Pride Month 2025 🌈</p>
+  <ul style="text-align: left; display: inline-block; margin: 1rem auto; padding-left: 1.2rem; text-align: left;">
+    <li>📕 A free paperback copy of the book</li>
+    <li>💌 Early access to bonus scenes</li>
+    <li>🎨 Digital wallpapers of the trio</li>
+  </ul>
+  <div style="max-width: 480px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); position: relative; z-index: 1;">
+    <div id="mlb2-1525077" class="ml-form-embed" data-account="1525077"></div>
+  </div>
+  <canvas id="confettiCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+</div>
+  </div>
+</div>
+    </div>
+  </div>
+
   <script>
     const elements = document.querySelectorAll('h1, h2, h3, p, img');
     const observer = new IntersectionObserver(entries => {
@@ -243,6 +263,52 @@
     window.addEventListener('scroll', () => {
       backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
+  </script>
+  <!-- Confetti Animation -->
+  <script>
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = 300;
+    const confetti = Array.from({length: 150}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 6 + 4,
+      d: Math.random() * 50,
+      color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+      tilt: Math.random() * 10 - 5,
+      tiltAngleIncrement: Math.random() * 0.07 + 0.05,
+      tiltAngle: 0
+    }));
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach(c => {
+        ctx.beginPath();
+        ctx.lineWidth = c.r;
+        ctx.strokeStyle = c.color;
+        ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
+        ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 2);
+        ctx.stroke();
+      });
+      updateConfetti();
+    }
+    function updateConfetti() {
+      confetti.forEach(c => {
+        c.y += Math.cos(c.d) + 1 + c.r / 2;
+        c.x += Math.sin(0);
+        c.tiltAngle += c.tiltAngleIncrement;
+        c.tilt = Math.sin(c.tiltAngle) * 15;
+        if (c.y > canvas.height) {
+          c.x = Math.random() * canvas.width;
+          c.y = -20;
+        }
+      });
+    }
+    function animateConfetti() {
+      drawConfetti();
+      requestAnimationFrame(animateConfetti);
+    }
+    animateConfetti();
   </script>
   <!-- MailerLite Universal -->
   <script>
