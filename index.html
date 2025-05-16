@@ -62,25 +62,28 @@
       margin: 0 auto;
     }
     .hero {
-      aspect-ratio: 16 / 9;
-      background: url('https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/refs/heads/main/ChatGPT%20Image%20Mar%2026%2C%202025%2C%2012_29_19%20PM.png') no-repeat center center / cover;
+      width: 100%;
+      height: 100vh;
+      background: url('https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/refs/heads/main/ChatGPT%20Image%20Mar%2026%2C%202025%2C%2012_29_19%20PM.png') center center / cover no-repeat;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
       color: white;
     }
     .hero h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.5rem;
-      text-shadow: 2px 2px 6px #000;
+      font-size: 4rem;
+      text-shadow: 2px 2px 8px #000;
       margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 1.25rem;
-      max-width: 640px;
+      font-size: 1.5rem;
+      max-width: 800px;
+      color: white;
       text-shadow: 1px 1px 4px #000;
+      margin: 0 auto;
     }
     .cover {
       max-width: 320px;
@@ -108,12 +111,12 @@
     <a href="#about">About the Authors</a>
   </nav>
 
-  <section id="home" style="width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: url('https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/refs/heads/main/ChatGPT%20Image%20Mar%2026%2C%202025%2C%2012_29_19%20PM.png') center center / cover no-repeat; text-align: center;">
-  <div style="width: 100%; max-width: 1400px; padding: 2rem;">
-    <h1 style="font-family: 'Dancing Script', cursive; font-size: 4rem; color: white; text-shadow: 2px 2px 8px #000; margin-bottom: 1rem; text-align: center;">Tres Amigos, Una Vida</h1>
-    <p style="font-size: 1.5rem; max-width: 800px; color: white; text-shadow: 1px 1px 4px #000; margin: 0 auto;">A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
-  </div>
-</section>
+  <section id="home" class="hero">
+    <div style="width: 100%; max-width: 1400px; padding: 2rem;">
+      <h1>Tres Amigos, Una Vida</h1>
+      <p>A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
+    </div>
+  </section>
 
   <section>
     <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Book Cover" />
@@ -128,50 +131,14 @@
     </div>
   </section>
 
-  </p>
-    <p style="font-size: 1rem; color: #444; max-width: 600px; margin: 0 auto 2rem;">Enter by <strong>June 4th, 2025</strong> for a chance to win. Winners will be emailed on <strong>June 5, 2025</strong> from <em>Tres Amigos, Una Vida</em>.</p>
+  <section id="giveaway">
+    <h2>🎁 Advance Reader Giveaway</h2>
+    <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem;">We're giving away <strong>10 advance reader copies</strong> of <em>Tres Amigos, Una Vida</em> before launch. Sign up below for a chance to read it early and help us spread the love. 💌</p>
     <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1525077/forms/154511201741571985/subscribe" method="post" target="_blank" style="max-width: 500px; margin: 0 auto;">
       <input type="email" name="fields[email]" placeholder="Your Email" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border-radius: 12px; border: none; font-size: 1rem;">
       <input type="text" name="fields[name]" placeholder="Your Name" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border-radius: 12px; border: none; font-size: 1rem;">
       <input type="text" name="fields[country]" placeholder="Your Country" style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border-radius: 12px; border: none; font-size: 1rem;">
       <button type="submit" style="background: #000; color: #fff; font-size: 1.1rem; padding: 1rem 2rem; border-radius: 9999px; border: none; cursor: pointer;">🎉 Enter to Win</button>
+      <p style="font-size: 0.9rem; margin-top: 1rem; color: #444;">Enter by <strong>June 4th, 2025</strong> for a chance to win. Winners will be emailed on <strong>June 5, 2025</strong> from <em>Tres Amigos, Una Vida</em>.</p>
     </form>
   </section>
-
-  <section id="trio">
-    <h2>Meet the Trio</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-      <div style="flex: 1 1 250px; max-width: 300px;">
-        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/cowboy_head.png" alt="Cowboy Head Icon" style="max-width: 120px; border-radius: 50%;">
-        <h3>The Cowboy</h3>
-        <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
-      </div>
-      <div style="flex: 1 1 250px; max-width: 300px;">
-        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/artist_head.png" alt="Artist Head Icon" style="max-width: 120px; border-radius: 50%;">
-        <h3>The Artist</h3>
-        <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
-      </div>
-      <div style="flex: 1 1 250px; max-width: 300px;">
-        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/visionary_head.png" alt="Visionary Head Icon" style="max-width: 120px; border-radius: 50%;">
-        <h3>The Visionary</h3>
-        <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="behind">
-    <h2>Behind the Book</h2>
-    <p style="font-style: italic; max-width: 720px; margin: 0 auto; font-size: 1.1rem;">This story was born from the belief that love is limitless and layered. It’s not about perfection—it’s about connection. We’ve poured our hearts into these pages hoping it reflects what love can truly look like when you let it grow on its own terms.</p>
-  </section>
-
-  <section id="about">
-    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dudes1lifeWebIcon2024%20copy.png" alt="3 Dudes Icon" style="max-width: 180px;">
-    <h2>About the Authors</h2>
-    <p><strong>D.C.W. = Daniel, Caleb, and Will have been building a life together for nearly a decade.</strong></p>
-    <p>As a real-life throuple, they’ve shared everything from wild travel adventures and cozy Sunday breakfasts to owning a business, raising two lovable dogs, and maybe even cohabiting with a ghost (their house definitely has vibes).</p>
-    <p>Together, they created <em>Tres Amigos, Una Vida</em> to celebrate the ups, downs, and deep connection found in loving more than one person at a time. They hope their stories inspire others to embrace their truth, redefine relationships on their own terms, and never settle for anything less than magic.</p>
-    <p>When they're not writing, you can find them working in their garden, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
-    <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
-  </section>
-</body>
-</html>
