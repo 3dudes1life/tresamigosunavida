@@ -10,6 +10,7 @@
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '1525077');
   </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -100,6 +101,37 @@
       font-weight: bold;
     }
     .socials a:hover { color: #ff6b6b; }
+    .ml-form-embedSubmit button.primary {
+      background: linear-gradient(to right, #fcd34d, #fbbf24);
+      border: none;
+      color: #222;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ml-form-embedSubmit button.primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    #countdown {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #222;
+      background: rgba(255,255,255,0.7);
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      margin-top: 1rem;
+    }
+    #mlb2-26044561 {
+      margin-top: 1rem;
+    }
+    #trio img.cover {
+      max-width: 100px;
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -110,39 +142,44 @@
     <a href="#behind">Behind the Book</a>
     <a href="#about">About the Authors</a>
   </nav>
-
   <section id="home" class="hero">
     <div style="width: 100%; max-width: 1400px; padding: 2rem;">
       <h1>Tres Amigos, Una Vida</h1>
       <p>A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
     </div>
   </section>
-
-  <section>
-    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Book Cover" />
-    <h2>A Throuple Love Story</h2>
-    <p><em>Three hearts. One connection. A love story that doesn’t follow the rules.</em></p>
-    <p>Coming Soon during Pride Month 2025 — a story about love, chosen family, and the unexpected journey to finding home together.</p>
-    <div class="socials">
-      <a href="https://instagram.com/tresamigosunavida" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/tresamigosunavida" target="_blank">Facebook</a>
-      <a href="https://www.threads.net/@tresamigosunavida" target="_blank">Threads</a>
-      <a href="mailto:tresamigosunavida@gmail.com">Email</a>
-    </div>
-  </section>
-
   <section id="giveaway">
     <h2>🎁 Advance Reader Giveaway</h2>
     <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem;">We're giving away <strong>10 advance reader copies</strong> of <em>Tres Amigos, Una Vida</em> before launch. Sign up below for a chance to read it early and help us spread the love. 💌</p>
+    <div id="countdown"></div>
     <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1525077/forms/154511201741571985/subscribe" method="post" target="_blank" style="max-width: 500px; margin: 0 auto;">
       <input type="email" name="fields[email]" placeholder="Your Email" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border-radius: 12px; border: none; font-size: 1rem;">
       <input type="text" name="fields[name]" placeholder="Your Name" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border-radius: 12px; border: none; font-size: 1rem;">
       <input type="text" name="fields[country]" placeholder="Your Country" style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border-radius: 12px; border: none; font-size: 1rem;">
-      <button type="submit" style="background: #000; color: #fff; font-size: 1.1rem; padding: 1rem 2rem; border-radius: 9999px; border: none; cursor: pointer;">🎉 Enter to Win</button>
+      <button type="submit" class="primary">🎉 Enter to Win</button>
       <p style="font-size: 0.9rem; margin-top: 1rem; color: #444;">Enter by <strong>June 4th, 2025</strong> for a chance to win. Winners will be emailed on <strong>June 5, 2025</strong> from <em>Tres Amigos, Una Vida</em>.</p>
     </form>
-  </section>
+      <script>
+    function updateCountdown() {
+      const deadline = new Date("2025-06-04T23:59:59").getTime();
+      const now = new Date().getTime();
+      const t = deadline - now;
 
+      if (t > 0) {
+        const days = Math.floor(t / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((t % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left to enter!`;
+      } else {
+        document.getElementById("countdown").innerHTML = "⏰ The giveaway has closed.";
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+  </section>
   <section id="trio">
     <h2>Meet the Trio</h2>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
@@ -163,12 +200,10 @@
       </div>
     </div>
   </section>
-
   <section id="behind">
     <h2>Behind the Book</h2>
     <p style="font-style: italic; max-width: 720px; margin: 0 auto; font-size: 1.1rem;">This story was born from the belief that love is limitless and layered. It’s not about perfection—it’s about connection. We’ve poured our hearts into these pages hoping it reflects what love can truly look like when you let it grow on its own terms.</p>
   </section>
-
   <section id="about">
     <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dudes1lifeWebIcon2024%20copy.png" alt="3 Dudes Icon" style="max-width: 180px;">
     <h2>About the Authors</h2>
@@ -178,3 +213,5 @@
     <p>When they're not writing, you can find them working in their garden, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
     <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
   </section>
+</body>
+</html>
