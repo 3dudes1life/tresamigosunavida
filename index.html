@@ -131,52 +131,34 @@
     </div>
   </section>
 
-  
-      <div id="countdown" style="font-size: 1.25rem; font-weight: bold; color: #b91c1c; margin-bottom: 1rem;"></div>
-      <input type="email" name="fields[email]" placeholder="Your Email" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border-radius: 12px; border: none; font-size: 1rem;">
-      <input type="text" name="fields[name]" placeholder="Your Name" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border-radius: 12px; border: none; font-size: 1rem;">
-      <input type="text" name="fields[country]" placeholder="Your Country" style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border-radius: 12px; border: none; font-size: 1rem;">
-      
-      <p id="confirmation-msg" style="display: none; color: green; margin-top: 1rem; font-weight: bold;">✅ Thank you! You're entered.</p>
-      <p style="font-size: 0.9rem; margin-top: 1rem; color: #444;">Enter by <strong>June 4th, 2025</strong> for a chance to win. Winners will be emailed on <strong>June 5, 2025</strong> from <em>Tres Amigos, Una Vida</em>.</p>
-    </form>
+  <section id="giveaway">
+    <h2>Giveaway</h2>
+    <div id="countdown" style="font-size: 1.25rem; font-weight: bold; color: #b91c1c; margin-bottom: 1rem;"></div>
+    <!-- MailerLite Embed Container -->
+    <div id="mlb2-26044561" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-26044561"></div>
+    <p style="font-size: 0.9rem; margin-top: 1rem; color: #444;">Enter by <strong>June 4th, 2025</strong> for a chance to win. Winners will be emailed on <strong>June 5, 2025</strong> from <em>Tres Amigos, Una Vida</em>.</p>
+  </section>
+
   <script>
-  // Countdown timer
-  const countdownEl = document.getElementById('countdown');
-  const targetDate = new Date('June 4, 2025 23:59:59').getTime();
+    const countdownEl = document.getElementById('countdown');
+    const targetDate = new Date('June 4, 2025 23:59:59').getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      if (distance <= 0) {
+        clearInterval(timer);
+        countdownEl.innerHTML = "⏰ Giveaway Closed";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `⏳ Time left to enter: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
 
-  const timer = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance <= 0) {
-      clearInterval(timer);
-      countdownEl.innerHTML = "⏰ Giveaway Closed";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdownEl.innerHTML = `⏳ Time left to enter: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }, 1000);
-
-  // Confirmation message on submit
-  const form = document.querySelector('.ml-block-form');
-  const confirmMsg = document.getElementById('confirmation-msg');
-
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      setTimeout(() => {
-        confirmMsg.style.display = 'block';
-      }, 300); // delay for smooth UI feedback
-    });
-  }
-</script>
-
-<section id="trio">
+  <section id="trio">
     <h2>Meet the Trio</h2>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
       <div style="flex: 1 1 250px; max-width: 300px;">
@@ -211,3 +193,5 @@
     <p>When they're not writing, you can find them working in their garden, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
     <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
   </section>
+</body>
+</html>
