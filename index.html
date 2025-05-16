@@ -10,6 +10,7 @@
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '1525077');
   </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -137,7 +138,6 @@
     <h1>Tres Amigos, Una Vida</h1>
     <p>A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
   </div>
-
   <section id="home">
     <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Book Cover">
     <h2>A Throuple Love Story</h2>
@@ -151,7 +151,6 @@
     </div>
   </section>
 
-  <!-- GIVEAWAY SECTION -->
   <section id="giveaway">
     <h2>Be One of the First!</h2>
     <p><strong>We’re giving away 10 advance reader copies of <em>Tres Amigos, Una Vida</em> before its official release.</strong></p>
@@ -161,47 +160,59 @@
     <p><strong>Enter by June 4th, 2025</strong> for a chance to win. Winners will be emailed on <strong>June 5, 2025</strong> from Tres Amigos, Una Vida.</p>
     <div id="countdown"></div>
     <div id="mlb2-26044561" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-26044561"></div>
-    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
-    <script>
-      fetch("https://assets.mailerlite.com/jsonp/1525077/forms/154511201741571985/takel")
-
-      const countdown = document.getElementById("countdown");
-      const deadline = new Date("June 4, 2025 23:59:59").getTime();
-      const interval = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = deadline - now;
-        if (distance < 0) {
-          clearInterval(interval);
-          countdown.innerHTML = "⏰ Deadline passed.";
-        } else {
-          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          countdown.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m left to enter!`;
-        }
-      }, 60000);
-    </script>
   </section>
 
   <section id="trio">
     <h2>Meet the Trio</h2>
-    <h3>The Cowboy</h3>
-    <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
-    <h3>The Artist</h3>
-    <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
-    <h3>The Visionary</h3>
-    <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
+    <div>
+      <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/cowboy_head.png" alt="The Cowboy">
+      <h3>The Cowboy</h3>
+      <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
+    </div>
+    <div>
+      <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/artist_head.png" alt="The Artist">
+      <h3>The Artist</h3>
+      <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
+    </div>
+    <div>
+      <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/visionary_head.png" alt="The Visionary">
+      <h3>The Visionary</h3>
+      <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
+    </div>
   </section>
 
   <section id="behind">
     <h2>Behind the Book</h2>
-    <p><em>This story was born from the belief that love is limitless and layered. It’s not about perfection—it’s about connection.</em></p>
+    <p>This story was born from the belief that love is limitless and layered. It’s not about perfection—it’s about connection. We’ve poured our hearts into these pages hoping it reflects what love can truly look like when you let it grow on its own terms.</p>
   </section>
 
   <section id="about">
     <h2>About the Authors</h2>
-    <p><strong>D.C.W. = Daniel, Caleb, and Will</strong> have been building a life together for nearly a decade.</p>
-    <p>As a real-life throuple, they’ve shared wild travel, cozy breakfasts, a business, two dogs, and maybe even a ghost.</p>
+    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dudes1lifeWebIcon2024%20copy.png" alt="3 Dudes 1 Life Icon">
+    <p><strong>D.C.W. = Daniel, Caleb, and Will have been building a life together for nearly a decade.</strong></p>
+    <p>As a real-life throuple, they’ve shared everything from wild travel adventures and cozy Sunday breakfasts to owning a business, raising two lovable dogs, and maybe even cohabiting with a ghost (their house definitely has vibes).</p>
+    <p>Together, they created <em>Tres Amigos, Una Vida</em> to celebrate the ups, downs, and deep connection found in loving more than one person at a time. They hope their stories inspire others to embrace their truth, redefine relationships on their own terms, and never settle for anything less than magic.</p>
+    <p>When they're not writing, you can find them working in their garden, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
+    <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
   </section>
+
+  <script>
+    const countdown = document.getElementById("countdown");
+    const deadline = new Date("June 4, 2025 23:59:59").getTime();
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = deadline - now;
+      if (distance < 0) {
+        clearInterval(interval);
+        countdown.innerHTML = "⏰ Deadline passed.";
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        countdown.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m left to enter!`;
+      }
+    }, 60000);
+  </script>
 </body>
 </html>
+
