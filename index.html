@@ -271,5 +271,21 @@
       document.querySelector('#success-message').classList.add('show');
     }
   </script>
+  <script>
+  window.onload = function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('scroll') === 'giveaway') {
+      const el = document.getElementById('giveaway');
+      if (el) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: el.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }, 500);
+      }
+    }
+  };
+</script>
 </body>
 </html>
