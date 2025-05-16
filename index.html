@@ -100,26 +100,46 @@
       font-weight: bold;
     }
     .socials a:hover { color: #ff6b6b; }
+    .ml-form-embedSubmit button.primary {
+      background: linear-gradient(to right, #fcd34d, #fbbf24);
+      border: none;
+      color: #222;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ml-form-embedSubmit button.primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    #countdown {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #222;
+      background: rgba(255,255,255,0.7);
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
   <nav>
     <a href="#home">Home</a>
-    <a href="#giveaway">Giveaway</a>
     <a href="#trio">Meet the Trio</a>
     <a href="#behind">Behind the Book</a>
     <a href="#about">About the Authors</a>
   </nav>
+  <div class="hero">
+    <h1>Tres Amigos, Una Vida</h1>
+    <p>A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
+  </div>
 
-  <section id="home" class="hero">
-    <div style="width: 100%; max-width: 1400px; padding: 2rem;">
-      <h1>Tres Amigos, Una Vida</h1>
-      <p>A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
-    </div>
-  </section>
-
-  <section>
-    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Book Cover" />
+  <section id="home">
+    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Book Cover">
     <h2>A Throuple Love Story</h2>
     <p><em>Three hearts. One connection. A love story that doesn’t follow the rules.</em></p>
     <p>Coming Soon during Pride Month 2025 — a story about love, chosen family, and the unexpected journey to finding home together.</p>
@@ -131,67 +151,57 @@
     </div>
   </section>
 
+  <!-- GIVEAWAY SECTION -->
   <section id="giveaway">
-    <h2>Giveaway</h2>
-    <div id="countdown" style="font-size: 1.25rem; font-weight: bold; color: #b91c1c; margin-bottom: 1rem;"></div>
-    <!-- MailerLite Embed Container -->
+    <h2>Be One of the First!</h2>
+    <p><strong>We’re giving away 10 advance reader copies of <em>Tres Amigos, Una Vida</em> before its official release.</strong></p>
+    <p>Want to get early access to the story before the world does?</p>
+    <p>Sign up below for a chance to receive one of 10 free digital copies.</p>
+    <p>We’ll pick the winners soon — and yep, we’ll ask if you’d be open to leaving an honest Amazon review (but no pressure). 💌</p>
+    <p><strong>Enter by June 4th, 2025</strong> for a chance to win. Winners will be emailed on <strong>June 5, 2025</strong> from Tres Amigos, Una Vida.</p>
+    <div id="countdown"></div>
     <div id="mlb2-26044561" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-26044561"></div>
-    <p style="font-size: 0.9rem; margin-top: 1rem; color: #444;">Enter by <strong>June 4th, 2025</strong> for a chance to win. Winners will be emailed on <strong>June 5, 2025</strong> from <em>Tres Amigos, Una Vida</em>.</p>
-  </section>
+    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
+    <script>
+      fetch("https://assets.mailerlite.com/jsonp/1525077/forms/154511201741571985/takel")
 
-  <script>
-    const countdownEl = document.getElementById('countdown');
-    const targetDate = new Date('June 4, 2025 23:59:59').getTime();
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-      if (distance <= 0) {
-        clearInterval(timer);
-        countdownEl.innerHTML = "⏰ Giveaway Closed";
-        return;
-      }
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdownEl.innerHTML = `⏳ Time left to enter: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-  </script>
+      const countdown = document.getElementById("countdown");
+      const deadline = new Date("June 4, 2025 23:59:59").getTime();
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = deadline - now;
+        if (distance < 0) {
+          clearInterval(interval);
+          countdown.innerHTML = "⏰ Deadline passed.";
+        } else {
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          countdown.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m left to enter!`;
+        }
+      }, 60000);
+    </script>
+  </section>
 
   <section id="trio">
     <h2>Meet the Trio</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-      <div style="flex: 1 1 250px; max-width: 300px;">
-        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/cowboy_head.png" alt="Cowboy Head Icon" style="max-width: 120px; border-radius: 50%;">
-        <h3>The Cowboy</h3>
-        <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
-      </div>
-      <div style="flex: 1 1 250px; max-width: 300px;">
-        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/artist_head.png" alt="Artist Head Icon" style="max-width: 120px; border-radius: 50%;">
-        <h3>The Artist</h3>
-        <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
-      </div>
-      <div style="flex: 1 1 250px; max-width: 300px;">
-        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/visionary_head.png" alt="Visionary Head Icon" style="max-width: 120px; border-radius: 50%;">
-        <h3>The Visionary</h3>
-        <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
-      </div>
-    </div>
+    <h3>The Cowboy</h3>
+    <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
+    <h3>The Artist</h3>
+    <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
+    <h3>The Visionary</h3>
+    <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
   </section>
 
   <section id="behind">
     <h2>Behind the Book</h2>
-    <p style="font-style: italic; max-width: 720px; margin: 0 auto; font-size: 1.1rem;">This story was born from the belief that love is limitless and layered. It’s not about perfection—it’s about connection. We’ve poured our hearts into these pages hoping it reflects what love can truly look like when you let it grow on its own terms.</p>
+    <p><em>This story was born from the belief that love is limitless and layered. It’s not about perfection—it’s about connection.</em></p>
   </section>
 
   <section id="about">
-    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dudes1lifeWebIcon2024%20copy.png" alt="3 Dudes Icon" style="max-width: 180px;">
     <h2>About the Authors</h2>
-    <p><strong>D.C.W. = Daniel, Caleb, and Will have been building a life together for nearly a decade.</strong></p>
-    <p>As a real-life throuple, they’ve shared everything from wild travel adventures and cozy Sunday breakfasts to owning a business, raising two lovable dogs, and maybe even cohabiting with a ghost (their house definitely has vibes).</p>
-    <p>Together, they created <em>Tres Amigos, Una Vida</em> to celebrate the ups, downs, and deep connection found in loving more than one person at a time. They hope their stories inspire others to embrace their truth, redefine relationships on their own terms, and never settle for anything less than magic.</p>
-    <p>When they're not writing, you can find them working in their garden, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
-    <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
+    <p><strong>D.C.W. = Daniel, Caleb, and Will</strong> have been building a life together for nearly a decade.</p>
+    <p>As a real-life throuple, they’ve shared wild travel, cozy breakfasts, a business, two dogs, and maybe even a ghost.</p>
   </section>
 </body>
 </html>
