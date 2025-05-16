@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
-  <meta property="og:title" content="Tres Amigos, Una Vida" />
-  <meta property="og:description" content="A throuple love story about three hearts, one connection, and rewriting what love looks like." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
-  <meta property="og:url" content="https://tresamigosunavida.com" />
-  <meta name="twitter:card" content="summary_large_image" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tres Amigos, Una Vida</title>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ff6b6b, #fcd34d);
+      color: #222;
+      text-align: center;
+    }
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: radial-gradient(circle at top, #ffffff11 0%, transparent 70%), url('https://www.transparenttextures.com/patterns/waves.png');
       background-size: 400px 400px;
       opacity: 0.05;
@@ -30,32 +31,24 @@
       0% { background-position: 0 0; }
       100% { background-position: 100px 50px; }
     }
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #ff6b6b, #fcd34d);
-      color: #222;
-      text-align: center;
-    }
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(10px);
       padding: 1rem;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       z-index: 1000;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
     }
     nav a {
       color: #222;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
     }
     nav a:hover { color: #ff6b6b; }
     h1, h2, h3, p, img {
@@ -72,49 +65,28 @@
       font-size: 3rem;
       margin: 1rem 0 0.3rem;
     }
-    h2 {
-      font-size: 1.5rem;
-      margin: 2rem 0 1rem;
+    h2 { font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h3 { font-size: 1.25rem; margin: 1rem 0 0.5rem; }
+    p {
+      max-width: 540px;
+      margin: 0 auto 1.5rem;
+      font-size: 1.1rem;
     }
-    h3 {
-      font-size: 1.25rem;
-      margin: 1rem 0 0.5rem;
-    }
-    img.cover {
+    .cover {
       max-width: 320px;
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
       background-color: #fff;
       margin-bottom: 1.5rem;
+      width: 100%;
     }
-    img.icon {
+    .icon {
       width: 100px;
       height: 100px;
       object-fit: cover;
       border-radius: 50%;
       margin-bottom: 0.5rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    p {
-      max-width: 540px;
-      margin: 0 auto 1.5rem;
-      font-size: 1.1rem;
-    }
-    .wave-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/waves.png');
-      background-size: 400px 400px;
-      opacity: 0.08;
-      z-index: -1;
-      animation: waveMotion 15s linear infinite alternate;
-    }
-    @keyframes waveMotion {
-      0% { background-position: 0 0; }
-      100% { background-position: 200px 100px; }
     }
     .section {
       padding: 4rem 1rem;
@@ -123,12 +95,30 @@
       background: rgba(255,255,255,0.15);
       border-radius: 1rem;
     }
+    .trio-flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .trio-flex {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    .trio-member {
+      flex: 1;
+      max-width: 280px;
+      padding: 0 1rem;
+    }
     .socials a {
       margin: 0 12px;
       color: #222;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
     }
     .socials a:hover { color: #ff6b6b; }
     .author-note {
@@ -138,14 +128,12 @@
     }
     #backToTop {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 30px; right: 30px;
       background: #fff;
       color: #222;
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       cursor: pointer;
       font-size: 20px;
@@ -153,32 +141,18 @@
       z-index: 999;
     }
   </style>
-  <!-- MailerLite Universal -->
-  <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '1525077');
-  </script>
-  <!-- End MailerLite Universal -->
 </head>
 <body>
-  <section id="hero" style="aspect-ratio: 16/9; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: url('https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/refs/heads/main/ChatGPT%20Image%20Mar%2026%2C%202025%2C%2012_29_19%20PM.png') no-repeat center center / cover; text-align: center; padding: 4rem 1rem;">
-    <h1 style="font-size: 3.5rem; color: white; text-shadow: 2px 2px 6px #000; margin-bottom: 1rem; font-family: 'Dancing Script', cursive;">Tres Amigos, Una Vida</h1>
-    <p style="font-size: 1.25rem; color: white; max-width: 640px; text-shadow: 1px 1px 4px #000;">A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
-  </section>
-
-  <div class="wave-bg"></div>
-
   <nav>
     <a href="#home">Home</a>
     <a href="#trio">Meet the Trio</a>
     <a href="#behind">Behind the Book</a>
     <a href="#about">About the Authors</a>
   </nav>
-
   <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
   <div id="home" class="section">
-    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Tres Amigos, Una Vida Book Cover" />
+    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Book Cover" />
     <h1>Tres Amigos, Una Vida</h1>
     <h2>A Throuple Love Story</h2>
     <p><em>Three hearts. One connection. A love story that doesn’t follow the rules.</em></p>
@@ -193,20 +167,22 @@
 
   <div id="trio" class="section">
     <h2>Meet the Trio</h2>
-    <div>
-      <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/cowboy_head.png" alt="Cowboy Silhouette Head">
-      <h3>The Cowboy</h3>
-      <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
-    </div>
-    <div>
-      <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/artist_head.png" alt="Artist Silhouette Head">
-      <h3>The Artist</h3>
-      <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
-    </div>
-    <div>
-      <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/visionary_head.png" alt="Visionary Silhouette Head">
-      <h3>The Visionary</h3>
-      <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
+    <div class="trio-flex">
+      <div class="trio-member">
+        <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/cowboy_head.png" alt="Cowboy">
+        <h3>The Cowboy</h3>
+        <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
+      </div>
+      <div class="trio-member">
+        <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/artist_head.png" alt="Artist">
+        <h3>The Artist</h3>
+        <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
+      </div>
+      <div class="trio-member">
+        <img class="icon" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/visionary_head.png" alt="Visionary">
+        <h3>The Visionary</h3>
+        <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
+      </div>
     </div>
   </div>
 
@@ -218,7 +194,7 @@
   </div>
 
   <div id="about" class="section">
-    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dudes1lifeWebIcon2024%20copy.png" alt="3 Dudes 1 Life Icon" style="max-width: 180px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); margin-bottom: 2rem;">
+    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dudes1lifeWebIcon2024%20copy.png" alt="3 Dudes Icon" style="max-width: 180px;">
     <h2>About the Authors</h2>
     <p><strong>D.C.W. = Daniel, Caleb, and Will have been building a life together for nearly a decade.</strong></p>
     <p>As a real-life throuple, they’ve shared everything from wild travel adventures and cozy Sunday breakfasts to owning a business, raising two lovable dogs, and maybe even cohabiting with a ghost (their house definitely has vibes).</p>
@@ -235,9 +211,7 @@
           entry.target.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.1 });
     elements.forEach(el => observer.observe(el));
 
     const backToTop = document.getElementById('backToTop');
