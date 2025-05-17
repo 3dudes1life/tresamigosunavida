@@ -193,14 +193,13 @@
   </div>
 
 
-<section id="giveaway">
-    <h2>🎁 Advance Reader Giveaway</h2>
+  <section id="giveaway">
     <div id="mlb2-26044561" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-26044561">
       <div class="ml-form-align-center">
         <div class="ml-form-embedWrapper embedForm">
           <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
             <div class="ml-form-embedContent">
-              <h4>Be One of the First!</h4>
+              <h2 style="font-size: 2rem;">🎁 Advance Reader Giveaway</h2>
               <p><strong>We’re giving away 10 advance reader copies of <em>Tres Amigos, Una Vida</em> before its official release.</strong></p>
               <p>Want to get early access to the story before the world does?</p>
               <p>Sign up below for a chance to receive one of 10 free digital copies.</p>
@@ -264,6 +263,7 @@
     <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
   </section>
 
+ 
   <script>
     const countdownDate = new Date("June 4, 2025 23:59:59").getTime();
     const countdownEl = document.getElementById("countdown");
@@ -281,26 +281,11 @@
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
       countdownEl.innerHTML = `⏳ Ends in ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
-        function ml_webform_success_26044561() {
-      document.querySelector('.row-form').style.display = 'none';
-      document.querySelector('#success-message').classList.add('show');
+
+    function ml_webform_success_26044561() {
+      document.querySelector(".row-form").style.display = "none";
+      document.querySelector("#success-message").classList.add("show");
     }
   </script>
-  <script>
-  window.onload = function () {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('scroll') === 'giveaway') {
-      const el = document.getElementById('giveaway');
-      if (el) {
-        setTimeout(() => {
-          window.scrollTo({
-            top: el.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }, 500);
-      }
-    }
-  };
-</script>
 </body>
 </html>
