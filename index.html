@@ -9,7 +9,10 @@
   <script>
     function ml_webform_success_26044561() {
       const banner = document.getElementById('success-banner');
-      if (banner) banner.classList.add('show');
+      if (banner) {
+        banner.classList.add('show');
+        banner.scrollIntoView({ behavior: 'smooth' });
+      }
       const form = document.getElementById('giveaway-form');
       if (form) form.reset();
       history.replaceState(null, '', window.location.pathname);
@@ -152,9 +155,12 @@
       margin-left: auto;
       margin-right: auto;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
     }
     .success-banner.show {
       display: block;
+      opacity: 1;
     }
     @media (max-width: 480px) {
       .socials {
@@ -301,6 +307,7 @@
     ml('account', '1525077');
   </script>
   <!-- End MailerLite Universal -->
+</style>
 </head>
 <body>
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
@@ -322,3 +329,4 @@
   </div>
 </body>
 </html>
+
