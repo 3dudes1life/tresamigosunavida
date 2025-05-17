@@ -11,6 +11,7 @@
       const form = document.getElementById('giveaway-form');
       const container = document.getElementById('form-container');
       if (form) form.style.display = 'none';
+
       let banner = document.getElementById('success-banner');
       if (!banner) {
         banner = document.createElement('div');
@@ -18,9 +19,9 @@
         banner.className = 'success-banner';
         banner.innerHTML = `
           <div class="banner-content">
-            <button class="close-btn" onclick="document.getElementById('success-banner').style.display='none'; document.getElementById('giveaway-form').style.display='block';">&times;</button>
             <h4>🎉 You're In!</h4>
             <p>Thank you for entering the giveaway. Best of luck!</p>
+            <button onclick="hideBanner()" class="close-button">Close</button>
           </div>
         `;
         container.appendChild(banner);
@@ -28,6 +29,11 @@
         banner.style.display = 'block';
       }
       history.replaceState(null, '', window.location.pathname);
+    }
+
+    function hideBanner() {
+      const banner = document.getElementById('success-banner');
+      if (banner) banner.style.display = 'none';
     }
   </script>
   <script>
