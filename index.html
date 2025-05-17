@@ -208,22 +208,22 @@
             <p>Sign up below for a chance to receive one of 10 free digital copies.</p>
             <p>We’ll pick the winners soon — and yep, we’ll ask if you’d be open to leaving an honest Amazon review (but no pressure). 💌</p>
           </div>
-    </style>
+  </style>
   <script>
-    let submitted = false;
-    function handleSubmit() {
-      submitted = true;
-      setTimeout(ml_webform_success_26044561, 800);
-    }
-
-    function ml_webform_success_26044561() {
+    function handleSubmit(event) {
+      event.preventDefault();
       const form = document.getElementById('giveaway-form');
-      const banner = document.getElementById('success-banner');
-      if (submitted && form && banner) {
-        form.style.display = 'none';
-        banner.style.display = 'block';
-      }
-      history.replaceState(null, '', window.location.pathname);
+      const formData = new FormData(form);
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', form.action);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          form.reset();
+          form.style.display = 'none';
+          document.getElementById('success-banner').style.display = 'block';
+        }
+      };
+      xhr.send(formData);
     }
 
     function hideBanner() {
@@ -235,9 +235,8 @@
   </script>
 </head>
 <body>
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" aria-hidden="true"></iframe>
   <div id="form-container">
-    <form id="giveaway-form" class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1525077/forms/154511201741571985/subscribe" method="POST" target="hidden_iframe" onsubmit="handleSubmit();">
+    <form id="giveaway-form" class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1525077/forms/154511201741571985/subscribe" method="POST" onsubmit="handleSubmit(event)">
       <div class="ml-form-formContent">
         <input type="email" name="fields[email]" placeholder="Email" required />
         <input type="text" name="fields[name]" placeholder="Name" />
@@ -255,7 +254,8 @@
         <p>Thank you for entering the giveaway. Best of luck!</p>
         <button onclick="hideBanner()" class="close-button">Close</button>
       </div>
-  </script>
+    </div>
+  </div>
 </body>
     </div>
   </div>
