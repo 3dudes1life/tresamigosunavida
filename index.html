@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <script>
     function ml_webform_success_26044561() {
+      const form = document.getElementById('giveaway-form');
+      if (form) form.style.display = 'none';
+
       const banner = document.getElementById('success-banner');
       if (banner) {
         banner.classList.remove('hidden');
@@ -15,10 +18,9 @@
         banner.setAttribute('aria-hidden', 'false');
         banner.scrollIntoView({ behavior: 'smooth' });
       }
-      const form = document.getElementById('giveaway-form');
-      if (form) form.reset();
       history.replaceState(null, '', window.location.pathname);
     }
+
     window.addEventListener('DOMContentLoaded', () => {
       const banner = document.getElementById('success-banner');
       if (banner) {
