@@ -29,6 +29,15 @@
         banner.setAttribute('aria-hidden', 'true');
       }
     });
+
+    document.addEventListener('click', function (e) {
+      const banner = document.getElementById('success-banner');
+      if (banner && banner.classList.contains('show')) {
+        banner.classList.remove('show');
+        banner.classList.add('hidden');
+        banner.setAttribute('aria-hidden', 'true');
+      }
+    });
   </script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -128,7 +137,7 @@
       background: #000;
       color: #fff;
       transform: translateY(-2px);
-    }
+  }
     .ml-form-formContent input {
       font-size: 1rem !important;
       padding: 0.75rem !important;
@@ -342,6 +351,7 @@
   <div id="success-banner" class="success-banner hidden" aria-hidden="true">
     <h4>🎉 You're In!</h4>
     <p>Thank you for entering the giveaway. Best of luck!</p>
+    <p><em>Click anywhere to close this message.</em></p>
   </div>
 </body>
 </html>
