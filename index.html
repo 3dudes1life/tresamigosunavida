@@ -38,6 +38,15 @@
       // Backup Plan 4: Replace URL to avoid resubmission
       history.replaceState(null, '', window.location.pathname);
     }
+
+    // Backup Plan 5: Ensure no success banner before submission
+    document.addEventListener('DOMContentLoaded', () => {
+      const successBanner = document.getElementById('success-banner');
+      if (successBanner) {
+        successBanner.style.display = 'none';
+        successBanner.classList.remove('show');
+      }
+    });
   </script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -356,7 +365,11 @@
       </div>
       <input type="hidden" name="anticsrf" value="true" />
     </form>
+    <div id="success-banner" class="success-banner">
+      <button class="close-btn" onclick="document.getElementById('success-banner').remove(); document.getElementById('giveaway-form').style.display='block';">&times;</button>
+      <h4>🎉 You're In!</h4>
+      <p>Thank you for entering the giveaway. Best of luck!</p>
+    </div>
   </div>
 </body>
 </html>
-
