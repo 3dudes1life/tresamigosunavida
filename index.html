@@ -20,13 +20,14 @@
     }
     document.addEventListener('click', function(event) {
       const popup = document.getElementById('success-popup');
-      if (popup && popup.classList.contains('show')) {
-        if (!popup.contains(event.target) && !event.target.closest('.ml-block-form')) {
-          popup.classList.remove('show');
-        }
+      const isPopup = popup && popup.contains(event.target);
+      const isButton = event.target.closest('.ml-form-embedSubmit');
+      if (popup && popup.classList.contains('show') && !isPopup && !isButton) {
+        popup.classList.remove('show');
       }
     });
   </script>
+  <script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
     .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
@@ -126,7 +127,7 @@
       color: #fff;
       transform: translateY(-2px);
     }
-    .ml-form-formContent input {
+      .ml-form-formContent input {
       font-size: 1rem !important;
       padding: 0.75rem !important;
       border-radius: 12px !important;
