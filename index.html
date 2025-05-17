@@ -21,7 +21,7 @@
     document.addEventListener('click', function(event) {
       const popup = document.getElementById('success-popup');
       if (popup && popup.classList.contains('show')) {
-        if (!popup.contains(event.target)) {
+        if (!popup.contains(event.target) && !event.target.closest('.ml-block-form')) {
           popup.classList.remove('show');
         }
       }
