@@ -9,44 +9,29 @@
   <script>
     function ml_webform_success_26044561() {
       const form = document.getElementById('giveaway-form');
-      const banner = document.getElementById('success-banner');
+      const container = document.getElementById('form-container');
 
-      // Backup Plan 1: Hide form manually
+      // Hide form after success
       if (form) form.style.display = 'none';
 
-      // Backup Plan 2: Add banner dynamically if missing
-      if (!banner) {
-        const newBanner = document.createElement('div');
-        newBanner.id = 'success-banner';
-        newBanner.className = 'success-banner';
-        newBanner.innerHTML = `
-          <button class="close-btn" onclick="document.getElementById('success-banner').remove(); document.getElementById('giveaway-form').style.display='block';">&times;</button>
-          <h4>🎉 You're In!</h4>
-          <p>Thank you for entering the giveaway. Best of luck!</p>
-        `;
-        document.getElementById('form-container').appendChild(newBanner);
-      }
+      // Remove old success banner if it exists
+      const oldBanner = document.getElementById('success-banner');
+      if (oldBanner) oldBanner.remove();
 
-      // Backup Plan 3: Force visibility and reset scroll
-      const successBanner = document.getElementById('success-banner');
-      if (successBanner) {
-        successBanner.style.display = 'block';
-        successBanner.classList.add('show');
-        successBanner.scrollIntoView({ behavior: 'smooth' });
-      }
+      // Create a new banner element dynamically
+      const newBanner = document.createElement('div');
+      newBanner.id = 'success-banner';
+      newBanner.className = 'success-banner show';
+      newBanner.innerHTML = `
+        <button class="close-btn" onclick="document.getElementById('success-banner').remove(); document.getElementById('giveaway-form').style.display='block';">&times;</button>
+        <h4>🎉 You're In!</h4>
+        <p>Thank you for entering the giveaway. Best of luck!</p>
+      `;
+      container.appendChild(newBanner);
 
-      // Backup Plan 4: Replace URL to avoid resubmission
+      // Clean the URL
       history.replaceState(null, '', window.location.pathname);
     }
-
-    // Backup Plan 5: Ensure no success banner before submission
-    document.addEventListener('DOMContentLoaded', () => {
-      const successBanner = document.getElementById('success-banner');
-      if (successBanner) {
-        successBanner.style.display = 'none';
-        successBanner.classList.remove('show');
-      }
-    });
   </script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -365,11 +350,6 @@
       </div>
       <input type="hidden" name="anticsrf" value="true" />
     </form>
-    <div id="success-banner" class="success-banner">
-      <button class="close-btn" onclick="document.getElementById('success-banner').remove(); document.getElementById('giveaway-form').style.display='block';">&times;</button>
-      <h4>🎉 You're In!</h4>
-      <p>Thank you for entering the giveaway. Best of luck!</p>
-    </div>
   </div>
 </body>
 </html>
