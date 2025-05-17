@@ -20,7 +20,7 @@
         newBanner.id = 'success-banner';
         newBanner.className = 'success-banner';
         newBanner.innerHTML = `
-          <button class="close-btn" onclick="document.getElementById('success-banner').style.display='none'">&times;</button>
+          <button class="close-btn" onclick="document.getElementById('success-banner').remove(); document.getElementById('giveaway-form').style.display='block';">&times;</button>
           <h4>🎉 You're In!</h4>
           <p>Thank you for entering the giveaway. Best of luck!</p>
         `;
@@ -137,7 +137,7 @@
       background: #000;
       color: #fff;
       transform: translateY(-2px);
-  }
+ }
     .ml-form-formContent input {
       font-size: 1rem !important;
       padding: 0.75rem !important;
@@ -359,3 +359,4 @@
   </div>
 </body>
 </html>
+
