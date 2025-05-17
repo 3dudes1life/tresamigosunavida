@@ -11,6 +11,7 @@
       const banner = document.getElementById('success-banner');
       if (banner) {
         banner.classList.add('show');
+        banner.setAttribute('aria-hidden', 'false');
         banner.scrollIntoView({ behavior: 'smooth' });
       }
       const form = document.getElementById('giveaway-form');
@@ -117,6 +118,15 @@
       color: #fff;
       transform: translateY(-2px);
     }
+    .ml-form-formContent input {
+      font-size: 1rem !important;
+      padding: 0.75rem !important;
+      border-radius: 12px !important;
+      width: 60% !important;
+      max-width: 300px !important;
+      display: block;
+      margin: 0.5rem auto;
+   }
     .ml-form-formContent input {
       font-size: 1rem !important;
       padding: 0.75rem !important;
@@ -307,7 +317,7 @@
     ml('account', '1525077');
   </script>
   <!-- End MailerLite Universal -->
-</style>
+  </style>
 </head>
 <body>
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
@@ -323,7 +333,7 @@
     </div>
     <input type="hidden" name="anticsrf" value="true" />
   </form>
-  <div id="success-banner" class="success-banner">
+  <div id="success-banner" class="success-banner" aria-hidden="true" style="display:none;">
     <h4>🎉 You're In!</h4>
     <p>Thank you for entering the giveaway. Best of luck!</p>
   </div>
