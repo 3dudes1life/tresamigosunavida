@@ -9,14 +9,14 @@
   <script>
     function ml_webform_success_26044561() {
       const form = document.querySelector('.ml-block-form');
-      const successBanner = document.getElementById('success-banner');
-      if (successBanner) successBanner.classList.add('show');
+      const popup = document.getElementById('success-popup');
+      if (popup) popup.classList.add('show');
       if (form) form.reset();
       history.replaceState(null, '', window.location.pathname);
     }
-    function closeSuccessBanner() {
-      const banner = document.getElementById('success-banner');
-      if (banner) banner.classList.remove('show');
+    function closeSuccessPopup() {
+      const popup = document.getElementById('success-popup');
+      if (popup) popup.classList.remove('show');
     }
   </script>
   <script>
@@ -146,20 +146,32 @@
       background: #333 !important;
       transform: scale(1.05) !important;
     }
-    .success-banner {
+    .success-popup {
       display: none;
-      background: #fffbea;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
       border: 2px solid #000;
-      padding: 1rem;
-      border-radius: 12px;
-      max-width: 600px;
-      margin: 2rem auto 0;
-      text-align: center;
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 90%;
+      width: 320px;
+      z-index: 2000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .success-popup.show {
+      display: block;
+    }
+    .success-popup button.close-btn {
+      background: none;
+      border: none;
       font-size: 1.2rem;
       font-weight: bold;
-    }
-    .success-banner.show {
-      display: block;
+      color: #000;
+      margin-top: 1rem;
+      cursor: pointer;
     }
     @media (max-width: 480px) {
       .socials {
@@ -309,8 +321,10 @@
 
 </head>
 <body>
-  <div id="success-banner" class="success-banner">
-    🎉 You're In! Thank you for entering the giveaway. Best of luck!
+  <div id="success-popup" class="success-popup">
+    <h4>🎉 You're In!</h4>
+    <p>Thank you for entering the giveaway. Best of luck!</p>
+    <button class="close-btn" onclick="closeSuccessPopup()">Close</button>
   </div>
 </body>
 </html>
