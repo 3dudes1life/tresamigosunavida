@@ -10,6 +10,7 @@
     function ml_webform_success_26044561() {
       const banner = document.getElementById('success-banner');
       if (banner) {
+        banner.classList.remove('hidden');
         banner.classList.add('show');
         banner.setAttribute('aria-hidden', 'false');
         banner.scrollIntoView({ behavior: 'smooth' });
@@ -159,9 +160,14 @@
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
+    .success-banner.hidden {
+      display: none;
+      opacity: 0;
+    }
     .success-banner.show {
-      display: block !important;
-      opacity: 1 !important;
+      display: block;
+      opacity: 1;
+    }
     }media (max-width: 480px) {
       .socials {
         flex-direction: column;
@@ -323,18 +329,9 @@
     </div>
     <input type="hidden" name="anticsrf" value="true" />
   </form>
-  <div id="success-banner" class="success-banner" aria-hidden="true" style="display:none;">
+  <div id="success-banner" class="success-banner hidden" aria-hidden="true">
     <h4>🎉 You're In!</h4>
     <p>Thank you for entering the giveaway. Best of luck!</p>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const banner = document.getElementById('success-banner');
-      if (banner) {
-        banner.classList.remove('show');
-        banner.setAttribute('aria-hidden', 'true');
-      }
-    });
-  </script>
 </body>
 </html>
