@@ -246,10 +246,15 @@
               <input type="email" name="fields[email]" placeholder="Email" required />
               <input type="text" name="fields[name]" placeholder="Name" />
               <input type="text" name="fields[country]" placeholder="Country" />
-            </div>
-            <div class="ml-form-embedSubmit">
-              <button type="submit" class="primary">🎉 Enter to Win</button>
-            </div>
+           </div>
+      <input type="hidden" name="ml-submit" value="1" />
+      <div class="ml-form-embedSubmit">
+        <button type="submit" class="primary">🎉 Enter to Win</button>
+      </div>
+      <input type="hidden" name="anticsrf" value="true" />
+    </form>
+    <div id="success-banner" class="success-banner" style="display: none;"></div>
+  </div>
           </form>
         </div>
       </div>
