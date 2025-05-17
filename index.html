@@ -166,14 +166,14 @@
       display: block;
     }
     .success-popup .close-btn {
-      background: #000;
-      color: #fff;
-      padding: 0.5rem 1rem;
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: none;
+      color: #000;
       border: none;
-      border-radius: 999px;
+      font-size: 1.25rem;
       font-weight: bold;
-      font-size: 1rem;
-      margin-top: 1rem;
       cursor: pointer;
     }
     @media (max-width: 480px) {
@@ -321,13 +321,12 @@
     ml('account', '1525077');
   </script>
   <!-- End MailerLite Universal -->
-
 </head>
 <body>
   <div id="success-popup" class="success-popup">
+    <button class="close-btn" onclick="closeSuccessPopup()">&times;</button>
     <h4>🎉 You're In!</h4>
     <p>Thank you for entering the giveaway. Best of luck!</p>
-    <button class="close-btn" onclick="closeSuccessPopup()">Close</button>
   </div>
 </body>
 </html>
