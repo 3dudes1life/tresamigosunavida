@@ -9,18 +9,14 @@
   <script>
     function ml_webform_success_26044561() {
       const form = document.querySelector('.ml-block-form');
-      const successPopup = document.getElementById('success-message');
-      const rowForm = document.querySelector('.row-form');
-      if (rowForm) rowForm.style.display = 'none';
-      if (successPopup) successPopup.classList.add('show');
+      const successBanner = document.getElementById('success-banner');
+      if (successBanner) successBanner.classList.add('show');
       if (form) form.reset();
       history.replaceState(null, '', window.location.pathname);
     }
-    function closeSuccessPopup() {
-      const popup = document.getElementById('success-message');
-      if (popup) popup.classList.remove('show');
-      const rowForm = document.querySelector('.row-form');
-      if (rowForm) rowForm.style.display = 'block';
+    function closeSuccessBanner() {
+      const banner = document.getElementById('success-banner');
+      if (banner) banner.classList.remove('show');
     }
   </script>
   <script>
@@ -150,40 +146,20 @@
       background: #333 !important;
       transform: scale(1.05) !important;
     }
-    .success-popup {
+    .success-banner {
       display: none;
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      max-width: 400px;
-      margin: 2rem auto;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2000;
-    }
-    .success-popup.show {
-      display: block;
-    }
-    .success-popup .go-back,
-    .success-popup .close-popup {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #000;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 999px;
+      background: #fffbea;
+      border: 2px solid #000;
+      padding: 1rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 2rem auto 0;
+      text-align: center;
+      font-size: 1.2rem;
       font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s ease;
     }
-    .success-popup .go-back:hover,
-    .success-popup .close-popup:hover {
-      background: #333;
+    .success-banner.show {
+      display: block;
     }
     @media (max-width: 480px) {
       .socials {
@@ -334,10 +310,7 @@
 </head>
 <body>
   <div id="success-banner" class="success-banner">
-    <button class="close-btn" onclick="closeSuccessBanner()">✖</button>
     🎉 You're In! Thank you for entering the giveaway. Best of luck!
-    <br>
-    <button onclick="closeSuccessBanner()">Close</button>
   </div>
 </body>
 </html>
