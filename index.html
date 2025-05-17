@@ -162,8 +162,7 @@
     .success-banner.show {
       display: block !important;
       opacity: 1 !important;
-    }
-    @media (max-width: 480px) {
+    }media (max-width: 480px) {
       .socials {
         flex-direction: column;
         align-items: center;
@@ -324,11 +323,18 @@
     </div>
     <input type="hidden" name="anticsrf" value="true" />
   </form>
-  <div id="success-banner" class="success-banner" aria-hidden="true">
+  <div id="success-banner" class="success-banner" aria-hidden="true" style="display:none;">
     <h4>🎉 You're In!</h4>
     <p>Thank you for entering the giveaway. Best of luck!</p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const banner = document.getElementById('success-banner');
+      if (banner) {
+        banner.classList.remove('show');
+        banner.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
 </body>
 </html>
-
-
