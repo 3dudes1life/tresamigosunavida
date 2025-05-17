@@ -25,8 +25,8 @@
           <button onclick="hideBanner()" class="close-button">Close</button>
         </div>
       `;
-      container.appendChild(banner);
       banner.style.display = 'block';
+      container.appendChild(banner);
       history.replaceState(null, '', window.location.pathname);
     }
 
@@ -42,7 +42,8 @@
       if (iframe) {
         iframe.addEventListener('load', function () {
           const form = document.getElementById('giveaway-form');
-          if (form && form.style.display !== 'none') {
+          const banner = document.getElementById('success-banner');
+          if (form && form.style.display !== 'none' && (!banner || banner.style.display === 'none')) {
             ml_webform_success_26044561();
           }
         });
@@ -147,7 +148,7 @@
       background: #000;
       color: #fff;
       transform: translateY(-2px);
-    }
+     }
     .ml-form-formContent input {
       font-size: 1rem !important;
       padding: 0.75rem !important;
@@ -191,15 +192,18 @@
     .success-banner .banner-content {
       opacity: 1;
     }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: transparent;
+    .close-button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
       border: none;
-      font-size: 1.5rem;
-      font-weight: bold;
+      border-radius: 8px;
+      background: #222;
+      color: #fff;
       cursor: pointer;
+    }
+    .close-button:hover {
+      background: #444;
     }
     }media (max-width: 480px) {
       .socials {
