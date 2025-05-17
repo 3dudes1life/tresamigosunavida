@@ -11,37 +11,31 @@
       const form = document.getElementById('giveaway-form');
       if (form) form.style.display = 'none';
 
-      const banner = document.getElementById('success-banner');
-      if (banner) {
-        banner.classList.remove('hidden');
-        banner.classList.add('show');
-        banner.setAttribute('aria-hidden', 'false');
-        banner.scrollIntoView({ behavior: 'smooth' });
-      }
+      const existingBanner = document.getElementById('success-banner');
+      if (existingBanner) existingBanner.remove();
+
+      const banner = document.createElement('div');
+      banner.id = 'success-banner';
+      banner.className = 'success-banner show';
+      banner.setAttribute('aria-hidden', 'false');
+      banner.innerHTML = `
+        <button class="close-btn" onclick="this.parentElement.remove()">&times;</button>
+        <h4>🎉 You're In!</h4>
+        <p>Thank you for entering the giveaway. Best of luck!</p>
+        <p><em>Click anywhere to close this message.</em></p>
+      `;
+
+      document.body.appendChild(banner);
+      banner.scrollIntoView({ behavior: 'smooth' });
+
+      document.addEventListener('click', (e) => {
+        if (banner && e.target !== banner && !banner.contains(e.target)) {
+          banner.remove();
+        }
+      });
+
       history.replaceState(null, '', window.location.pathname);
     }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const banner = document.getElementById('success-banner');
-      if (banner) {
-        banner.classList.add('hidden');
-        banner.classList.remove('show');
-        banner.setAttribute('aria-hidden', 'true');
-        banner.style.display = 'none';
-        banner.style.opacity = '0';
-      }
-    });
-
-    document.addEventListener('click', function (e) {
-      const banner = document.getElementById('success-banner');
-      if (banner && banner.classList.contains('show')) {
-        banner.classList.remove('show');
-        banner.classList.add('hidden');
-        banner.setAttribute('aria-hidden', 'true');
-        banner.style.display = 'none';
-        banner.style.opacity = '0';
-      }
-    });
   </script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -141,7 +135,7 @@
       background: #000;
       color: #fff;
       transform: translateY(-2px);
-    }
+   }
     .ml-form-formContent input {
       font-size: 1rem !important;
       padding: 0.75rem !important;
@@ -183,10 +177,6 @@
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
       position: relative;
-    }
-    .success-banner.hidden {
-      display: none;
-      opacity: 0;
     }
     .success-banner.show {
       display: block;
@@ -363,11 +353,5 @@
     </div>
     <input type="hidden" name="anticsrf" value="true" />
   </form>
-  <div id="success-banner" class="success-banner hidden" aria-hidden="true" style="display: none; opacity: 0;">
-    <button class="close-btn" onclick="document.getElementById('success-banner').classList.remove('show'); document.getElementById('success-banner').classList.add('hidden'); document.getElementById('success-banner').style.display = 'none'; document.getElementById('success-banner').style.opacity = '0';">&times;</button>
-    <h4>🎉 You're In!</h4>
-    <p>Thank you for entering the giveaway. Best of luck!</p>
-    <p><em>Click anywhere to close this message.</em></p>
-  </div>
 </body>
 </html>
