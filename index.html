@@ -18,6 +18,13 @@
       const popup = document.getElementById('success-popup');
       if (popup) popup.classList.remove('show');
     }
+
+    window.addEventListener('click', function (e) {
+      const popup = document.getElementById('success-popup');
+      if (popup && popup.classList.contains('show') && !popup.contains(e.target)) {
+        closeSuccessPopup();
+      }
+    });
   </script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
