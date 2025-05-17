@@ -33,6 +33,19 @@
       const banner = document.getElementById('success-banner');
       if (banner) banner.remove();
     }
+
+    // Listen for iframe load and confirm success
+    window.onload = function () {
+      const iframe = document.getElementById('hidden_iframe');
+      if (iframe) {
+        iframe.addEventListener('load', function () {
+          const form = document.getElementById('giveaway-form');
+          if (form && form.style.display !== 'none') {
+            ml_webform_success_26044561();
+          }
+        });
+      }
+    };
   </script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
