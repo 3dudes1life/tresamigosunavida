@@ -154,22 +154,6 @@
     .close-button:hover {
       background: #444;
     }
-  </style>
-  <script>
-    function ml_webform_success_26044561() {
-      const form = document.getElementById('giveaway-form');
-      const banner = document.getElementById('success-banner');
-      if (form) form.style.display = 'none';
-      if (banner) banner.style.display = 'block';
-      history.replaceState(null, '', window.location.pathname);
-    }
-
-    function hideBanner() {
-      const banner = document.getElementById('success-banner');
-      if (banner) banner.style.display = 'none';
-      const form = document.getElementById('giveaway-form');
-      if (form) form.style.display = 'block';
-    }
   </script>
     }media (max-width: 480px) {
       .socials {
@@ -224,7 +208,28 @@
             <p>Sign up below for a chance to receive one of 10 free digital copies.</p>
             <p>We’ll pick the winners soon — and yep, we’ll ask if you’d be open to leaving an honest Amazon review (but no pressure). 💌</p>
           </div>
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" aria-hidden="true" onload="if(submitted) ml_webform_success_26044561();"></iframe>
+   <script>
+    let submitted = false;
+    function ml_webform_success_26044561() {
+      const form = document.getElementById('giveaway-form');
+      const banner = document.getElementById('success-banner');
+      if (submitted && form && banner) {
+        form.style.display = 'none';
+        banner.style.display = 'block';
+      }
+      history.replaceState(null, '', window.location.pathname);
+    }
+
+    function hideBanner() {
+      const banner = document.getElementById('success-banner');
+      if (banner) banner.style.display = 'none';
+      const form = document.getElementById('giveaway-form');
+      if (form) form.style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" aria-hidden="true" onload="ml_webform_success_26044561()"></iframe>
   <div id="form-container">
     <form id="giveaway-form" class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1525077/forms/154511201741571985/subscribe" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
       <div class="ml-form-formContent">
@@ -244,6 +249,7 @@
         <p>Thank you for entering the giveaway. Best of luck!</p>
         <button onclick="hideBanner()" class="close-button">Close</button>
       </div>
+    </div>
     </div>
   </div>
   <script>
