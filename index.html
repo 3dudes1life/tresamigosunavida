@@ -6,6 +6,24 @@
   <title>Tres Amigos, Una Vida</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    function ml_webform_success_26044561() {
+      const form = document.querySelector('.ml-block-form');
+      const successPopup = document.getElementById('success-message');
+      const rowForm = document.querySelector('.row-form');
+      if (rowForm) rowForm.style.display = 'none';
+      if (successPopup) successPopup.classList.add('show');
+      if (form) form.reset();
+      history.replaceState(null, '', window.location.pathname);
+    }
+  </script>
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1525077');
+  </script>
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -134,7 +152,7 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       max-width: 400px;
       margin: 2rem auto;
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -304,17 +322,7 @@
     ml('account', '1525077');
   </script>
   <!-- End MailerLite Universal -->
-  <script>
-    function ml_webform_success_26044561() {
-      const form = document.querySelector('.ml-block-form');
-      const successPopup = document.getElementById('success-message');
-      const rowForm = document.querySelector('.row-form');
-      if (rowForm) rowForm.style.display = 'none';
-      if (successPopup) successPopup.classList.add('show');
-      if (form) form.reset();
-      history.replaceState(null, '', window.location.pathname);
-    }
-  </script>
+
 </head>
 <body>
 <div id="success-message" class="success-popup">
