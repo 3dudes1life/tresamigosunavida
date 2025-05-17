@@ -16,6 +16,10 @@
       if (form) form.reset();
       history.replaceState(null, '', window.location.pathname);
     }
+    function closeSuccessPopup() {
+      document.getElementById('success-message').classList.remove('show');
+      document.querySelector('.row-form').style.display = 'block';
+    }
   </script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -161,7 +165,8 @@
     .success-popup.show {
       display: block;
     }
-    .success-popup .go-back {
+    .success-popup .go-back,
+    .success-popup .close-popup {
       display: inline-block;
       margin-top: 1rem;
       background: #000;
@@ -174,7 +179,8 @@
       text-decoration: none;
       transition: background 0.3s ease;
     }
-    .success-popup .go-back:hover {
+    .success-popup .go-back:hover,
+    .success-popup .close-popup:hover {
       background: #333;
     }
     @media (max-width: 480px) {
@@ -329,6 +335,7 @@
   <h4>🎉 You're In!</h4>
   <p>Thank you for entering the giveaway. Best of luck!</p>
   <a href="#home" class="go-back">⬅️ Go Back</a>
+  <button class="close-popup" onclick="closeSuccessPopup()">Close ✖️</button>
 </div>
 </body>
 </html>
