@@ -6,20 +6,36 @@
   <title>Tres Amigos, Una Vida</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <script>
-    function ml_webform_success_26044561() {
-      const banner = document.getElementById('success-banner');
-      if (banner) {
-        banner.classList.remove('hidden');
-        banner.classList.add('show');
-        banner.setAttribute('aria-hidden', 'false');
-        banner.scrollIntoView({ behavior: 'smooth' });
-      }
-      const form = document.getElementById('giveaway-form');
-      if (form) form.reset();
-      history.replaceState(null, '', window.location.pathname);
+<script>
+  function ml_webform_success_26044561() {
+    const banner = document.getElementById('success-banner');
+    if (banner) {
+      banner.classList.add('show');
+      banner.classList.remove('hidden');
+      banner.setAttribute('aria-hidden', 'false');
+      banner.scrollIntoView({ behavior: 'smooth' });
     }
-  </script>
+
+    const form = document.getElementById('giveaway-form');
+    if (form) form.reset();
+
+    // Remove any query strings like ?success=true to prevent auto-show on reload
+    if (window.history.replaceState) {
+      const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      window.history.replaceState({}, document.title, cleanUrl);
+    }
+  }
+
+  // Prevent showing banner if it's somehow cached
+  window.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('success-banner');
+    if (banner) {
+      banner.classList.add('hidden');
+      banner.classList.remove('show');
+      banner.setAttribute('aria-hidden', 'true');
+    }
+  });
+</script>
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
     .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
