@@ -17,8 +17,10 @@
       history.replaceState(null, '', window.location.pathname);
     }
     function closeSuccessPopup() {
-      document.getElementById('success-message').classList.remove('show');
-      document.querySelector('.row-form').style.display = 'block';
+      const popup = document.getElementById('success-message');
+      if (popup) popup.classList.remove('show');
+      const rowForm = document.querySelector('.row-form');
+      if (rowForm) rowForm.style.display = 'block';
     }
   </script>
   <script>
