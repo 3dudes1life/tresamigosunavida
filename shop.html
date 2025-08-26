@@ -2,76 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Store • Tres Amigos, Una Vida</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #fcd34d, #ff6b6b);
-      color: #222;
-      text-align: center;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Quicksand',sans-serif;
+      background:linear-gradient(to bottom,#fcd34d,#ff6b6b);
+      color:#222;
+      text-align:center;
     }
 
-    /* Top nav (mirrors index.html) */
-    nav {
-      position: sticky;
-      top: 0; left: 0; width: 100%;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      flex-wrap: wrap;
+    /* compact top nav */
+    nav{
+      position:sticky; top:0; left:0; width:100%;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(10px);
+      padding:.7rem .75rem;
+      display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;
+      z-index:1000;
+      box-shadow:0 2px 6px rgba(0,0,0,.08);
     }
-    nav a {
-      color: #222;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
+    /* allow gentle horizontal scroll on tiny screens instead of wrapping 2 lines */
+    @media (max-width:430px){
+      nav{flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch}
+      nav::-webkit-scrollbar{display:none}
     }
-    nav a:hover { color: #ff6b6b; }
+    nav a{
+      color:#222; text-decoration:none; font-weight:700; font-size:.95rem; white-space:nowrap;
+      padding:.25rem .35rem; border-radius:.5rem;
+    }
+    nav a:hover{color:#ff6b6b}
 
-    header.hero {
-      min-height: 42vh;
-      display: grid;
-      place-items: center;
-      padding: 6rem 1rem 2rem;
+    /* tighter hero */
+    header.hero{
+      min-height:26vh;
+      display:grid; place-items:center;
+      padding:3.5rem 1rem 1.25rem;
     }
-    header.hero h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      margin: 0 0 .25rem;
+    header.hero h1{
+      font-family:'Dancing Script',cursive;
+      font-size:2.6rem; margin:.1rem 0 .35rem;
     }
-    header.hero p { margin: 0.25rem 0 0; max-width: 800px; }
+    header.hero p{margin:0 auto; max-width:800px}
+    .note{font-size:.95rem; opacity:.85; margin-top:.35rem}
 
-    main { max-width: 1200px; margin: 0 auto; padding: 1rem 1rem 3rem; }
-    .store-card {
-      background: rgba(255,255,255,0.92);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      padding: 1rem;
-    }
-    .note {
-      font-size: .95rem; opacity: .85; margin: .5rem 0 1rem;
+    /* content */
+    main{max-width:1200px; margin:0 auto; padding:0 1rem 2.5rem}
+    .store-card{
+      background:rgba(255,255,255,.92);
+      border-radius:16px;
+      box-shadow:0 8px 24px rgba(0,0,0,.12);
+      padding:1rem;
+      margin:0 auto 1rem;
     }
 
-    /* Optional: nudge Shopify product cards a bit when wide */
-    @media (min-width: 1024px) {
-      .store-card { padding: 1.25rem 1.5rem; }
+    /* tighten further on phones */
+    @media (max-width:768px){
+      header.hero{min-height:20vh; padding:2.75rem 1rem 1rem}
+      header.hero h1{font-size:2.15rem}
+      nav a{font-size:.9rem}
+      .store-card{padding:.75rem}
+    }
+    @media (max-width:430px){
+      header.hero{min-height:18vh; padding:2.25rem .75rem .75rem}
+      header.hero h1{font-size:1.9rem}
     }
 
-    footer {
-      text-align: center; padding: 2rem 1rem; font-size: 0.9rem;
-      background: linear-gradient(to bottom, #ff6b6b, #fcd34d); color: #222;
-      margin-top: 2rem;
+    footer{
+      text-align:center; padding:1.5rem 1rem; font-size:.9rem;
+      background:linear-gradient(to bottom,#ff6b6b,#fcd34d); color:#222;
+      margin-top:1.25rem;
     }
   </style>
 </head>
@@ -94,26 +98,19 @@
 
   <main>
     <div class="store-card">
-      <!-- Your Shopify Buy Button (Collection) embed -->
+      <!-- Shopify Buy Button (your exact embed) -->
       <div id='collection-component-1756234570120'></div>
       <script type="text/javascript">
       /*<![CDATA[*/
       (function () {
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         if (window.ShopifyBuy) {
-          if (window.ShopifyBuy.UI) {
-            ShopifyBuyInit();
-          } else {
-            loadScript();
-          }
-        } else {
-          loadScript();
-        }
+          if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
+        } else { loadScript(); }
         function loadScript() {
           var script = document.createElement('script');
-          script.async = true;
-          script.src = scriptURL;
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+          script.async = true; script.src = scriptURL;
+          (document.head||document.body).appendChild(script);
           script.onload = ShopifyBuyInit;
         }
         function ShopifyBuyInit() {
@@ -133,57 +130,25 @@
                       "@media (min-width: 601px)": {
                         "max-width": "calc(25% - 20px)",
                         "margin-left": "20px",
-                        "margin-bottom": "50px",
+                        "margin-bottom": "40px",
                         "width": "calc(25% - 20px)"
                       },
-                      "img": {
-                        "height": "calc(100% - 15px)",
-                        "position": "absolute",
-                        "left": "0",
-                        "right": "0",
-                        "top": "0"
-                      },
-                      "imgWrapper": {
-                        "padding-top": "calc(75% + 15px)",
-                        "position": "relative",
-                        "height": "0"
-                      }
+                      "img": {"height":"calc(100% - 15px)","position":"absolute","left":"0","right":"0","top":"0"},
+                      "imgWrapper": {"padding-top":"calc(75% + 15px)","position":"relative","height":"0"}
                     }
                   },
-                  "text": { "button": "Add to cart" }
+                  "text": {"button":"Add to cart"}
                 },
                 "productSet": {
-                  "styles": {
-                    "products": {
-                      "@media (min-width: 601px)": { "margin-left": "-20px" }
-                    }
-                  }
+                  "styles": {"products": {"@media (min-width: 601px)": {"margin-left": "-20px"}}}
                 },
                 "modalProduct": {
-                  "contents": {
-                    "img": false,
-                    "imgWithCarousel": true,
-                    "button": false,
-                    "buttonWithQuantity": true
-                  },
-                  "styles": {
-                    "product": {
-                      "@media (min-width: 601px)": {
-                        "max-width": "100%",
-                        "margin-left": "0px",
-                        "margin-bottom": "0px"
-                      }
-                    }
-                  },
-                  "text": { "button": "Add to cart" }
+                  "contents": {"img": false,"imgWithCarousel": true,"button": false,"buttonWithQuantity": true},
+                  "styles": {"product": {"@media (min-width: 601px)": {"max-width": "100%","margin-left":"0","margin-bottom":"0"}}},
+                  "text": {"button": "Add to cart"}
                 },
                 "option": {},
-                "cart": {
-                  "text": {
-                    "total": "Subtotal",
-                    "button": "Checkout"
-                  }
-                },
+                "cart": {"text": {"total": "Subtotal","button": "Checkout"}},
                 "toggle": {}
               },
             });
@@ -192,15 +157,12 @@
       })();
       /*]]>*/
       </script>
-
-      <noscript>
-        Please enable JavaScript to view products.
-      </noscript>
+      <noscript>Please enable JavaScript to view products.</noscript>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 <a href="https://3dudes1lifecreative.com/" target="_blank" style="color: #222; text-decoration: none; font-weight: bold;">3Dudes1Life Creative</a>. All rights reserved.
+    &copy; 2025 <a href="https://3dudes1lifecreative.com/" target="_blank" style="color:#222; text-decoration:none; font-weight:bold;">3Dudes1Life Creative</a>. All rights reserved.
   </footer>
 </body>
-</html> 
+</html>
