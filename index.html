@@ -2,167 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Store • Tres Amigos, Una Vida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tres Amigos, Una Vida</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QS94RD8PPR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QS94RD8PPR');
+  </script>
+
   <style>
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Quicksand',sans-serif;
-      background:linear-gradient(to bottom,#fcd34d,#ff6b6b);
-      color:#222;
-      text-align:center;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ff6b6b, #fcd34d);
+      color: #222;
+      text-align: center;
     }
-
-    /* compact top nav */
-    nav{
-      position:sticky; top:0; left:0; width:100%;
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(10px);
-      padding:.7rem .75rem;
-      display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;
-      z-index:1000;
-      box-shadow:0 2px 6px rgba(0,0,0,.08);
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
     }
-    /* allow gentle horizontal scroll on tiny screens instead of wrapping 2 lines */
-    @media (max-width:430px){
-      nav{flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch}
-      nav::-webkit-scrollbar{display:none}
+    nav a {
+      color: #222;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
     }
-    nav a{
-      color:#222; text-decoration:none; font-weight:700; font-size:.95rem; white-space:nowrap;
-      padding:.25rem .35rem; border-radius:.5rem;
+    nav a:hover { color: #ff6b6b; }
+    section {
+      padding: 6rem 1rem 3rem;
+      max-width: 960px;
+      margin: 0 auto;
     }
-    nav a:hover{color:#ff6b6b}
-
-    /* tighter hero */
-    header.hero{
-      min-height:26vh;
-      display:grid; place-items:center;
-      padding:3.5rem 1rem 1.25rem;
+    .hero {
+      width: 100%;
+      height: 100vh;
+      background: url('https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/refs/heads/main/ChatGPT%20Image%20Mar%2026%2C%202025%2C%2012_29_19%20PM.png') center center / cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
     }
-    header.hero h1{
-      font-family:'Dancing Script',cursive;
-      font-size:2.6rem; margin:.1rem 0 .35rem;
+    .hero h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4rem;
+      text-shadow: 2px 2px 8px #000;
+      margin-bottom: 1rem;
     }
-    header.hero p{margin:0 auto; max-width:800px}
-    .note{font-size:.95rem; opacity:.85; margin-top:.35rem}
-
-    /* content */
-    main{max-width:1200px; margin:0 auto; padding:0 1rem 2.5rem}
-    .store-card{
-      background:rgba(255,255,255,.92);
-      border-radius:16px;
-      box-shadow:0 8px 24px rgba(0,0,0,.12);
-      padding:1rem;
-      margin:0 auto 1rem;
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      color: white;
+      text-shadow: 1px 1px 4px #000;
+      margin: 0 auto;
     }
-
-    /* tighten further on phones */
-    @media (max-width:768px){
-      header.hero{min-height:20vh; padding:2.75rem 1rem 1rem}
-      header.hero h1{font-size:2.15rem}
-      nav a{font-size:.9rem}
-      .store-card{padding:.75rem}
+    .cover {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      margin: 6rem auto 2rem;
     }
-    @media (max-width:430px){
-      header.hero{min-height:18vh; padding:2.25rem .75rem .75rem}
-      header.hero h1{font-size:1.9rem}
+    .links {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
     }
-
-    footer{
-      text-align:center; padding:1.5rem 1rem; font-size:.9rem;
-      background:linear-gradient(to bottom,#ff6b6b,#fcd34d); color:#222;
-      margin-top:1.25rem;
+    .links a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+    .links a:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 480px) {
+      .links { flex-direction: column; align-items: center; }
+      .links a { width: 80%; text-align: center; }
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html#home">Home</a>
-    <a href="index.html#trio">Meet the Trio</a>
-    <a href="index.html#behind">Behind the Book</a>
-    <a href="index.html#about">About the Authors</a>
-    <a href="shop.html"><strong>Store</strong></a>
+    <a href="#home">Home</a>
+    <a href="#trio">Meet the Trio</a>
+    <a href="#behind">Behind the Book</a>
+    <a href="#about">About the Authors</a>
+    <!-- New Store tab -->
+    <a href="shop.html">Store</a>
   </nav>
 
-  <header class="hero">
-    <div>
-      <h1>Store</h1>
-      <p>Official <em>Tres Amigos, Una Vida</em> shop — books, stickers, gifts, and more.</p>
-      <p class="note">Secure checkout handled by Shopify.</p>
-    </div>
-  </header>
+  <section class="hero">
+    <h1>Tres Amigos, Una Vida</h1>
+    <p>A throuple love story about three hearts, one connection, and rewriting what love looks like.</p>
+  </section>
 
-  <main>
-    <div class="store-card">
-      <!-- Shopify Buy Button (your exact embed) -->
-      <div id='collection-component-1756234570120'></div>
-      <script type="text/javascript">
-      /*<![CDATA[*/
-      (function () {
-        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-        if (window.ShopifyBuy) {
-          if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
-        } else { loadScript(); }
-        function loadScript() {
-          var script = document.createElement('script');
-          script.async = true; script.src = scriptURL;
-          (document.head||document.body).appendChild(script);
-          script.onload = ShopifyBuyInit;
-        }
-        function ShopifyBuyInit() {
-          var client = ShopifyBuy.buildClient({
-            domain: 'outatinc.myshopify.com',
-            storefrontAccessToken: '5ab76d1c31a639dbc32ea62cd825538d',
-          });
-          ShopifyBuy.UI.onReady(client).then(function (ui) {
-            ui.createComponent('collection', {
-              id: '517829853403',
-              node: document.getElementById('collection-component-1756234570120'),
-              moneyFormat: '%24%7B%7Bamount%7D%7D',
-              options: {
-                "product": {
-                  "styles": {
-                    "product": {
-                      "@media (min-width: 601px)": {
-                        "max-width": "calc(25% - 20px)",
-                        "margin-left": "20px",
-                        "margin-bottom": "40px",
-                        "width": "calc(25% - 20px)"
-                      },
-                      "img": {"height":"calc(100% - 15px)","position":"absolute","left":"0","right":"0","top":"0"},
-                      "imgWrapper": {"padding-top":"calc(75% + 15px)","position":"relative","height":"0"}
-                    }
-                  },
-                  "text": {"button":"Add to cart"}
-                },
-                "productSet": {
-                  "styles": {"products": {"@media (min-width: 601px)": {"margin-left": "-20px"}}}
-                },
-                "modalProduct": {
-                  "contents": {"img": false,"imgWithCarousel": true,"button": false,"buttonWithQuantity": true},
-                  "styles": {"product": {"@media (min-width: 601px)": {"max-width": "100%","margin-left":"0","margin-bottom":"0"}}},
-                  "text": {"button": "Add to cart"}
-                },
-                "option": {},
-                "cart": {"text": {"total": "Subtotal","button": "Checkout"}},
-                "toggle": {}
-              },
-            });
-          });
-        }
-      })();
-      /*]]>*/
-      </script>
-      <noscript>Please enable JavaScript to view products.</noscript>
+  <section id="home">
+    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Tres Amigos, Una Vida Book Cover" />
+    <h2>A Throuple Love Story</h2>
+    <p style="font-style: italic; max-width: 700px; margin: 0 auto;">
+      What happens when three wildly different men—an emotionally guarded Navy mechanic from Oklahoma, a tattooed culinary specialist from a tiny Florida town, and a sharp-tongued tech heir from San Francisco—collide at exactly the wrong time... and it feels perfectly right?
+    </p>
+    <p style="max-width: 700px; margin: 1rem auto;">
+      From secret glances in the mess hall to fights that end in laughter under the same blanket, <em>Tres Amigos, Una Vida</em> follows a raw and unforgettable path through love, vulnerability, and devotion. Over years, through deployments, cities, and shifting definitions of home, their story asks one question: what if your forever isn’t just one person—but two?
+    </p>
+    <p style="max-width: 700px; margin: 1rem auto;">
+      This isn’t your typical romance. This is the story of how three men fall in love—messily, deeply, and against all odds. It’s about what it really means to build a life together when the world keeps trying to pull you apart.
+    </p>
+    <p style="max-width: 700px; margin: 1rem auto;">
+      Inspired by true events from a real-life throuple who’ve spent a decade building a life—and love—together.
+    </p>
+    <p><strong>Now available on Amazon & Shopify!</strong></p>
+    <div class="links">
+      <a href="https://www.amazon.com/Tres-Amigos-Una-Vida-Throuple-ebook/dp/B0F98W6S5N" target="_blank">📖 Buy the eBook</a>
+      <a href="https://outatinc.myshopify.com/collections/tres-amigos-una-vida" target="_blank">🛍️ Shop on Shopify</a>
+      <a href="shop.html">🛒 Visit Store</a>
+      <a href="https://instagram.com/tresamigosunavida" target="_blank">📸 Instagram</a>
+      <a href="https://www.facebook.com/tresamigosunavida" target="_blank">📘 Facebook</a>
+      <a href="https://www.threads.net/@tresamigosunavida" target="_blank">🧵 Threads</a>
+      <a href="mailto:tresamigosunavida@gmail.com">✉️ Email</a>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    &copy; 2025 <a href="https://3dudes1lifecreative.com/" target="_blank" style="color:#222; text-decoration:none; font-weight:bold;">3Dudes1Life Creative</a>. All rights reserved.
+  <section id="trio">
+    <h2>Meet the Trio</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+      <div style="flex: 1 1 250px; max-width: 300px;">
+        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/cowboy_head.png" alt="Cowboy Head Icon" style="max-width: 120px; border-radius: 50%;">
+        <h3>The Cowboy</h3>
+        <p>Quiet strength. Southern soul. A steady presence in a whirlwind of change.</p>
+      </div>
+      <div style="flex: 1 1 250px; max-width: 300px;">
+        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/artist_head.png" alt="Artist Head Icon" style="max-width: 120px; border-radius: 50%;">
+        <h3>The Artist</h3>
+        <p>Ink tells his story. Bold heart, bold moves. Soft where it counts.</p>
+      </div>
+      <div style="flex: 1 1 250px; max-width: 300px;">
+        <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/visionary_head.png" alt="Visionary Head Icon" style="max-width: 120px; border-radius: 50%;">
+        <h3>The Visionary</h3>
+        <p>Always thinking forward. A sharp mind behind gentle eyes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="behind">
+    <h2>Behind the Book</h2>
+    <p style="font-style: italic; max-width: 720px; margin: 0 auto; font-size: 1.1rem;">This story was born from the belief that love is limitless and layered. It’s not about perfection—it’s about connection. We’ve poured our hearts into these pages hoping it reflects what love can truly look like when you let it grow on its own terms.</p>
+  </section>
+
+  <section id="about">
+    <img class="cover" src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/3dudes1lifeWebIcon2024%20copy.png" alt="3 Dudes Icon" style="max-width: 180px;">
+    <h2>About the Authors</h2>
+    <p><strong>D.C.W. = Daniel, Caleb, and Will have been building a life together for nearly a decade.</strong></p>
+    <p>As a real-life throuple, they’ve shared everything from wild travel adventures and cozy Sunday breakfasts to owning a business, raising two lovable dogs, and maybe even cohabiting with a ghost (their house definitely has vibes).</p>
+    <p>Together, they created <em>Tres Amigos, Una Vida</em> to celebrate the ups, downs, and deep connection found in loving more than one person at a time. They hope their stories inspire others to embrace their truth, redefine relationships on their own terms, and never settle for anything less than magic.</p>
+    <p>When they're not writing, you can find them working in their garden, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
+    <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
+  </section>
+
+  <footer style="text-align: center; padding: 2rem 1rem; font-size: 0.9rem; background: linear-gradient(to bottom, #fcd34d, #ff6b6b); color: #222; margin-top: 4rem;">
+    &copy; 2025 <a href="https://3dudes1lifecreative.com/" target="_blank" style="color: #222; text-decoration: none; font-weight: bold;">3Dudes1Life Creative</a>. All rights reserved.
   </footer>
 </body>
-</html> 
+</html>
