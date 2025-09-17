@@ -112,6 +112,39 @@
       .links { flex-direction: column; align-items: center; }
       .links a { width: 80%; text-align: center; }
     }
+
+    /* --- Press / Media --- */
+    #press h2 { margin-bottom: .5rem; }
+    .press-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .press-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    .press-card h3 {
+      margin: 0 0 .5rem;
+      font-size: 1.2rem;
+    }
+    .press-card a {
+      color: #ff6b6b;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .press-card a:hover { text-decoration: underline; }
+    .press-card blockquote {
+      font-style: italic;
+      color: #555;
+      margin: .5rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid #ff6b6b;
+    }
   </style>
 </head>
 <body>
@@ -120,7 +153,7 @@
     <a href="#trio">Meet the Trio</a>
     <a href="#behind">Behind the Book</a>
     <a href="#about">About the Authors</a>
-    <!-- New Store tab -->
+    <a href="#press">Press</a>
     <a href="shop.html">Store</a>
   </nav>
 
@@ -190,6 +223,27 @@
     <p>Together, they created <em>Tres Amigos, Una Vida</em> to celebrate the ups, downs, and deep connection found in loving more than one person at a time. They hope their stories inspire others to embrace their truth, redefine relationships on their own terms, and never settle for anything less than magic.</p>
     <p>When they're not writing, you can find them working in their garden, planning their future in Hawaii, or answering questions on their blog, <strong>3Dudes1Life</strong>.</p>
     <p>📸 Follow them on social: <strong>@3dudes1life</strong></p>
+  </section>
+
+  <!-- Press / Media Section -->
+  <section id="press">
+    <h2>Press & Media</h2>
+    <p style="max-width:720px;margin:0 auto 1.5rem;">
+      Recent coverage and features about <em>Tres Amigos, Una Vida</em>.
+    </p>
+    <div class="press-grid">
+      <article class="press-card">
+        <h3>
+          <a href="https://shoutoutsocal.com/meet-william-zakrajshek-ceo-co-author/" target="_blank" rel="noopener noreferrer">
+            Meet William Zakrajshek: CEO & Co-Author of Tres Amigos, Una Vida
+          </a>
+        </h3>
+        <blockquote>
+          “The throuple behind the novel Tres Amigos, Una Vida are redefining what love and family can look like.”
+        </blockquote>
+        <a href="https://shoutoutsocal.com/meet-william-zakrajshek-ceo-co-author/" target="_blank" rel="noopener noreferrer">Read the full article →</a>
+      </article>
+    </div>
   </section>
 
   <footer style="text-align: center; padding: 2rem 1rem; font-size: 0.9rem; background: linear-gradient(to bottom, #fcd34d, #ff6b6b); color: #222; margin-top: 4rem;">
