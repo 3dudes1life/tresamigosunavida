@@ -35,3 +35,11 @@ New public URL:
 `https://www.tresamigosunavida.com/fault-lines.html`
 
 The page is intentionally spoiler-light until the final back-cover copy, release date, ISBNs, and buying links are locked.
+
+
+## Link-in-bio page
+The redesigned official links page is:
+
+`https://www.tresamigosunavida.com/links.html`
+
+It is intentionally marked `noindex,follow` because it is a utility page for social profiles, not a page that should compete with the main book and series pages in Google.

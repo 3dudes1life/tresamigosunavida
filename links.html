@@ -1,103 +1,331 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Links | Tres Amigos, Una Vida</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
-  <style>
-    body {
-      background: linear-gradient(to top, #013A63, #FFA500, #FF4500);
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0 20px;
-      text-align: center;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Official Links | Tres Amigos, Una Vida</title>
+<meta name="description" content="Explore the official Tres Amigos, Una Vida book series, shop signed copies and merchandise, and follow D.C.W. online.">
+<link rel="canonical" href="https://www.tresamigosunavida.com/links.html">
+<meta name="robots" content="noindex,follow">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Official Links | Tres Amigos, Una Vida">
+<meta property="og:description" content="Books, signed copies, official merchandise, and social links from D.C.W.">
+<meta property="og:url" content="https://www.tresamigosunavida.com/links.html">
+<meta property="og:site_name" content="Tres Amigos, Una Vida">
+<meta property="og:image" content="https://www.tresamigosunavida.com/assets/fault-lines-cover.jpg">
+<meta property="og:image:alt" content="Fault Lines, Book Two in the Tres Amigos, Una Vida series">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Official Links | Tres Amigos, Una Vida">
+<meta name="twitter:description" content="Books, signed copies, official merchandise, and social links from D.C.W.">
+<meta name="twitter:image" content="https://www.tresamigosunavida.com/assets/fault-lines-cover.jpg">
+<meta name="theme-color" content="#fff9ef">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=20260714-links">
+<style>
+  .links-page {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 10% 10%, rgba(255,255,255,.32), transparent 22%),
+      radial-gradient(circle at 90% 0%, rgba(255,255,255,.18), transparent 24%),
+      linear-gradient(145deg, #ff7867 0%, #f0b84f 43%, #0f6f73 100%);
+    padding: 42px 0 58px;
+  }
+  .links-shell {
+    width: calc(100% - 28px);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .links-brand {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 28px;
+  }
+  .links-brand a {
+    color: #fff;
+    font-family: "Dancing Script", "Brush Script MT", cursive;
+    font-size: clamp(2.35rem, 8vw, 4.25rem);
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    text-shadow: 0 8px 24px rgba(0,0,0,.22);
+  }
+  .links-brand p {
+    max-width: 560px;
+    margin: 12px auto 0;
+    color: rgba(255,255,255,.9);
+    font-size: .98rem;
+  }
+  .links-panel {
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.38);
+    border-radius: 30px;
+    background: rgba(255,253,249,.93);
+    box-shadow: 0 30px 80px rgba(18,36,38,.22);
+    backdrop-filter: blur(18px);
+  }
+  .links-series {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .link-book {
+    position: relative;
+    min-height: 280px;
+    display: grid;
+    grid-template-columns: 108px minmax(0,1fr);
+    gap: 18px;
+    align-items: center;
+    padding: 26px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform .2s ease, filter .2s ease;
+  }
+  .link-book:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    filter: saturate(1.06);
+  }
+  .link-book-one {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,.20), transparent 28%),
+      linear-gradient(145deg, #ff6b62, #d9892d);
+  }
+  .link-book-two {
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255,244,202,.18), transparent 27%),
+      linear-gradient(145deg, #123f45, #0f7d7f);
+  }
+  .link-book img {
+    width: 108px;
+    height: 164px;
+    object-fit: cover;
+    border-radius: 9px;
+    box-shadow: 0 18px 42px rgba(0,0,0,.24);
+  }
+  .link-book .mini-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: .68rem;
+    font-weight: 850;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .link-book h2 {
+    color: #fff;
+    margin: 0 0 8px;
+    font-size: clamp(1.65rem, 4vw, 2.15rem);
+    line-height: 1;
+  }
+  .link-book p {
+    margin: 0;
+    color: rgba(255,255,255,.86);
+    font-size: .85rem;
+    line-height: 1.45;
+  }
+  .link-groups {
+    padding: 24px;
+  }
+  .links-heading {
+    margin: 4px 0 14px;
+    color: #aa355b;
+    font-size: .7rem;
+    font-weight: 850;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .links-list {
+    display: grid;
+    gap: 11px;
+  }
+  .hub-link {
+    min-height: 56px;
+    display: grid;
+    grid-template-columns: 42px minmax(0,1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 14px 9px 9px;
+    border: 1px solid rgba(33,29,30,.10);
+    border-radius: 17px;
+    background: #fff;
+    color: #211d1e;
+    text-decoration: none;
+    box-shadow: 0 7px 20px rgba(78,46,39,.06);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .hub-link:hover {
+    color: #211d1e;
+    transform: translateY(-2px);
+    border-color: rgba(170,53,91,.24);
+    box-shadow: 0 13px 28px rgba(78,46,39,.11);
+  }
+  .hub-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #fff1e5;
+    font-size: 1.08rem;
+  }
+  .hub-link.teal .hub-icon { background: #dff5f1; }
+  .hub-link.gold .hub-icon { background: #fff1c8; }
+  .hub-link.dark .hub-icon { background: #eee9e8; }
+  .hub-copy {
+    min-width: 0;
+  }
+  .hub-copy strong {
+    display: block;
+    color: #211d1e;
+    font-size: .92rem;
+  }
+  .hub-copy span {
+    display: block;
+    overflow: hidden;
+    color: #74696b;
+    font-size: .76rem;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .hub-arrow {
+    color: #aa355b;
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+  .links-footer {
+    padding: 22px 24px 26px;
+    border-top: 1px solid rgba(33,29,30,.08);
+    color: #74696b;
+    text-align: center;
+    font-size: .78rem;
+  }
+  .links-footer a {
+    color: #aa355b;
+  }
+  @media (max-width: 680px) {
+    .links-page { padding: 24px 0 36px; }
+    .links-series { grid-template-columns: 1fr; }
+    .link-book {
+      min-height: 218px;
+      grid-template-columns: 92px minmax(0,1fr);
+      padding: 22px 20px;
     }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      color: #ffffff;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 2px #000;
+    .link-book img {
+      width: 92px;
+      height: 140px;
     }
-
-    p {
-      margin-bottom: 30px;
-      font-size: 1.3em;
-      color: #f0f0f0;
+    .links-panel { border-radius: 24px; }
+    .link-groups { padding: 18px 14px; }
+    .hub-link {
+      min-height: 60px;
+      grid-template-columns: 44px minmax(0,1fr) auto;
+      padding-right: 12px;
     }
-
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      max-width: 400px;
+  }
+  @media (max-width: 390px) {
+    .link-book {
+      grid-template-columns: 78px minmax(0,1fr);
+      gap: 14px;
     }
-
-    .links a {
-      background-color: #ffffff;
-      color: #2C3E50;
-      text-decoration: none;
-      padding: 15px;
-      border-radius: 30px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      font-weight: 600;
-      font-size: 1.1em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+    .link-book img {
+      width: 78px;
+      height: 119px;
     }
-
-    .links a:hover {
-      background-color: #FFA500;
-      color: #ffffff;
-      transform: translateY(-5px);
-    }
-
-    .vip-note {
-      color: #000000;
-      margin-top: -10px;
-      margin-bottom: 20px;
-      font-size: 0.95em;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #f0f0f0;
-    }
-  </style>
+    .hub-copy span { white-space: normal; }
+  }
+</style>
 </head>
 <body>
-  <h1>Tres Amigos, Una Vida</h1>
-  <p>Explore more below:</p>
+<main class="links-page">
+  <div class="links-shell">
+    <header class="links-brand">
+      <a href="/">Tres Amigos, Una Vida</a>
+      <p>Books, signed copies, official merchandise, and the world behind D.C.W.</p>
+    </header>
 
-  <div class="links">
-    <a href="https://tresamigosunavida.com" target="_blank" rel="noopener">Official Website</a>
-    <a href="https://outatinc.myshopify.com/collections/tres-amigos-una-vida" target="_blank" rel="noopener">🛍️ Shop on Shopify</a>
-    <a href="https://www.etsy.com/shop/TresAmigosUnaVida" target="_blank" rel="noopener">🧡 Shop on Etsy</a>
-    <a href="https://www.amazon.com/Tres-Amigos-Una-Vida-Throuple-ebook/dp/B0F98W6S5N/" target="_blank" rel="noopener">📖 Buy the e-Book on Amazon</a>
-    <a href="https://instagram.com/tresamigosunavida" target="_blank" rel="noopener">Follow on Instagram</a>
-    <a href="https://www.threads.net/@tresamigosunavida" target="_blank" rel="noopener">🧵 Follow on Threads</a>
-    <a href="https://www.3dudes1lifecreative.com" target="_blank" rel="noopener">Visit 3Dudes1Life Creative</a>
+    <section class="links-panel" aria-label="Official links">
+      <div class="links-series">
+        <a class="link-book link-book-one" href="/book.html">
+          <img src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Tres Amigos, Una Vida Book One cover">
+          <div>
+            <span class="mini-label">Book One · Available Now</span>
+            <h2>Tres Amigos, Una Vida</h2>
+            <p>Begin Michael, Juan, and Christopher’s story.</p>
+          </div>
+        </a>
+
+        <a class="link-book link-book-two" href="/fault-lines.html">
+          <img src="/assets/fault-lines-cover.jpg" alt="Fault Lines Book Two cover">
+          <div>
+            <span class="mini-label">Book Two · Coming Soon</span>
+            <h2>Fault Lines</h2>
+            <p>Discover the next chapter in their shared life.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="link-groups">
+        <p class="links-heading">Read & Shop</p>
+        <div class="links-list">
+          <a class="hub-link gold" href="https://www.amazon.com/Tres-Amigos-Una-Vida-Throuple-ebook/dp/B0F98W6S5N/" target="_blank" rel="sponsored noopener">
+            <span class="hub-icon">📖</span>
+            <span class="hub-copy"><strong>Buy Book One on Amazon</strong><span>Kindle and available print editions</span></span>
+            <span class="hub-arrow">›</span>
+          </a>
+
+          <a class="hub-link" href="https://www.etsy.com/shop/TresAmigosUnaVida" target="_blank" rel="sponsored noopener">
+            <span class="hub-icon">✍️</span>
+            <span class="hub-copy"><strong>Signed Books & Merch on Etsy</strong><span>Signed copies and official book merchandise</span></span>
+            <span class="hub-arrow">›</span>
+          </a>
+
+          <a class="hub-link teal" href="https://outatinc.myshopify.com/collections/tres-amigos-una-vida" target="_blank" rel="sponsored noopener">
+            <span class="hub-icon">🛍️</span>
+            <span class="hub-copy"><strong>Official Shopify Collection</strong><span>Browse the complete Tres Amigos collection</span></span>
+            <span class="hub-arrow">›</span>
+          </a>
+
+          <a class="hub-link dark" href="https://www.tresamigosunavida.com" target="_blank" rel="noopener">
+            <span class="hub-icon">🌅</span>
+            <span class="hub-copy"><strong>Explore the Official Website</strong><span>Books, authors, press, and series information</span></span>
+            <span class="hub-arrow">›</span>
+          </a>
+        </div>
+
+        <p class="links-heading" style="margin-top:24px">Follow & Connect</p>
+        <div class="links-list">
+          <a class="hub-link" href="https://instagram.com/tresamigosunavida" target="_blank" rel="noopener">
+            <span class="hub-icon">📸</span>
+            <span class="hub-copy"><strong>Follow on Instagram</strong><span>Book news, behind the scenes, and release updates</span></span>
+            <span class="hub-arrow">›</span>
+          </a>
+
+          <a class="hub-link teal" href="https://www.threads.net/@tresamigosunavida" target="_blank" rel="noopener">
+            <span class="hub-icon">🧵</span>
+            <span class="hub-copy"><strong>Follow on Threads</strong><span>Join the conversation with D.C.W.</span></span>
+            <span class="hub-arrow">›</span>
+          </a>
+
+          <a class="hub-link dark" href="https://www.3dudes1lifecreative.com" target="_blank" rel="noopener">
+            <span class="hub-icon">🌴</span>
+            <span class="hub-copy"><strong>Visit 3Dudes1Life Creative</strong><span>Explore the larger creative world behind D.C.W.</span></span>
+            <span class="hub-arrow">›</span>
+          </a>
+        </div>
+      </div>
+
+      <footer class="links-footer">
+        <p>© <span id="year">2026</span> Tres Amigos, Una Vida · <a href="mailto:tresamigosunavida@gmail.com">Contact</a></p>
+      </footer>
+    </section>
   </div>
+</main>
 
-  <footer>
-    &copy; <span id="year">2025</span> Tres Amigos, Una Vida. All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
