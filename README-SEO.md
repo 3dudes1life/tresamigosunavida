@@ -48,3 +48,15 @@ This edition intentionally restores the original book-site personality:
 - centered, warm, celebratory layout
 
 The SEO structure remains intact underneath the restored visual identity.
+
+## Modern editorial design revision
+This version keeps the recognizable coral-and-gold identity while replacing the flat gradient-heavy execution with:
+- warm ivory page surfaces
+- controlled coral/gold gradient moments
+- Cormorant Garamond editorial display typography
+- Manrope body and navigation typography
+- Dancing Script reserved for the brand signature only
+- tighter page heroes and stronger content hierarchy
+- subtle borders and shadows instead of oversized floating cards
+- responsive layouts and reduced-motion support
+- Etsy retained for signed books and official merchandise
