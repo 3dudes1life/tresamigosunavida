@@ -13,18 +13,21 @@
 <meta property="og:description" content="Books, signed copies, official merchandise, and social links from D.C.W.">
 <meta property="og:url" content="https://www.tresamigosunavida.com/links.html">
 <meta property="og:site_name" content="Tres Amigos, Una Vida">
-<meta property="og:image" content="https://www.tresamigosunavida.com/assets/fault-lines-cover.jpg">
+<meta property="og:image" content="https://www.tresamigosunavida.com/assets/social-series.jpg">
 <meta property="og:image:alt" content="Fault Lines, Book Two in the Tres Amigos, Una Vida series">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Official Links | Tres Amigos, Una Vida">
 <meta name="twitter:description" content="Books, signed copies, official merchandise, and social links from D.C.W.">
-<meta name="twitter:image" content="https://www.tresamigosunavida.com/assets/fault-lines-cover.jpg">
+<meta name="twitter:image" content="https://www.tresamigosunavida.com/assets/social-series.jpg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <meta name="theme-color" content="#fff9ef">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png">
+<link rel="icon" type="image/png" href="https://www.tresamigosunavida.com/assets/tres-amigos-una-vida-cover.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=20260714-links">
+<link rel="stylesheet" href="assets/styles.css?v=20260714-launch">
 <style>
   .links-page {
     min-height: 100vh;
@@ -237,6 +240,16 @@
     .hub-copy span { white-space: normal; }
   }
 </style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QS94RD8PPR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-QS94RD8PPR");
+</script>
+
 </head>
 <body>
 <main class="links-page">
@@ -249,7 +262,7 @@
     <section class="links-panel" aria-label="Official links">
       <div class="links-series">
         <a class="link-book link-book-one" href="/book.html">
-          <img src="https://raw.githubusercontent.com/3dudes1life/tresamigosunavida/main/Tres%20Amigos%2C%20Una%20Vida_book%20cover.png" alt="Tres Amigos, Una Vida Book One cover">
+          <img src="https://www.tresamigosunavida.com/assets/tres-amigos-una-vida-cover.jpg" alt="Tres Amigos, Una Vida Book One cover">
           <div>
             <span class="mini-label">Book One · Available Now</span>
             <h2>Tres Amigos, Una Vida</h2>
@@ -327,5 +340,6 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+<script src="/assets/site.js?v=20260714-launch"></script>
 </body>
 </html>
