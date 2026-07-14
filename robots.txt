@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tresamigosunavida.com/sitemap.xml
+Sitemap: https://www.tresamigosunavida.com/sitemap.xml
