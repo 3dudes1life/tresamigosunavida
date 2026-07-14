@@ -1,0 +1,9 @@
+{
+  "name": "Tres Amigos, Una Vida",
+  "short_name": "Tres Amigos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffaf2",
+  "theme_color": "#aa3e62",
+  "icons": []
+}
