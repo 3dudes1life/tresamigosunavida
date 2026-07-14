@@ -473,9 +473,6 @@ p { margin: 0 0 18px; }
   --fault-gold: #d9a84c;
   --fault-cream: #fff3cf;
 }
-.series-nav-link {
-  color: var(--fault-teal) !important;
-}
 .series-reveal {
   position: relative;
   overflow: hidden;
@@ -639,5 +636,69 @@ p { margin: 0 0 18px; }
   }
   .fault-page-hero {
     padding: 64px 0;
+  }
+}
+
+
+/* Series navigation colors: Book One = sunset orange, Book Two = pool teal */
+.desktop-nav a[href="/book.html"],
+.mobile-nav-links a[href="/book.html"] {
+  color: #d65a2f;
+}
+
+.desktop-nav a[href="/fault-lines.html"],
+.mobile-nav-links a[href="/fault-lines.html"] {
+  color: var(--fault-teal);
+}
+
+.desktop-nav a[href="/book.html"]:hover,
+.mobile-nav-links a[href="/book.html"]:hover {
+  color: #b94722;
+}
+
+.desktop-nav a[href="/fault-lines.html"]:hover,
+.mobile-nav-links a[href="/fault-lines.html"]:hover {
+  color: var(--fault-deep);
+}
+
+/* Keep both series links readable and balanced on small screens */
+.mobile-nav-links a[href="/book.html"],
+.mobile-nav-links a[href="/fault-lines.html"] {
+  position: relative;
+  padding-left: 40px;
+  font-weight: 850;
+}
+
+.mobile-nav-links a[href="/book.html"]::before,
+.mobile-nav-links a[href="/fault-lines.html"]::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+}
+
+.mobile-nav-links a[href="/book.html"]::before {
+  background: linear-gradient(135deg, var(--coral), var(--gold));
+}
+
+.mobile-nav-links a[href="/fault-lines.html"]::before {
+  background: linear-gradient(135deg, var(--fault-teal), var(--fault-pool));
+}
+
+@media (max-width: 860px) {
+  .mobile-nav-links {
+    width: min(310px, calc(100vw - 28px));
+    padding: 10px;
+  }
+
+  .mobile-nav-links a {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    line-height: 1.25;
   }
 }
