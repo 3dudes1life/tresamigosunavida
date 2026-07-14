@@ -37,3 +37,14 @@
 
 ## SEO note
 No website can guarantee first-page Google rankings. This package fixes the technical and on-page foundations so Google can understand, crawl, and present the book accurately. Rankings then grow through indexing, quality backlinks, press coverage, reviews, branded searches, and fresh useful content.
+
+## Design revision
+This edition intentionally restores the original book-site personality:
+- coral-to-gold gradient
+- Dancing Script headings
+- original full-screen hero image
+- white rounded purchase buttons
+- original trio artwork
+- centered, warm, celebratory layout
+
+The SEO structure remains intact underneath the restored visual identity.
