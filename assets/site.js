@@ -7,6 +7,7 @@
     if (href.indexOf("etsy.com") !== -1) return "click_etsy";
     if (href.indexOf("shopify.com") !== -1) return "click_shopify";
     if (href.indexOf("instagram.com") !== -1) return "click_instagram";
+    if (href.indexOf("shop.html#fault-lines") !== -1) return "buy_book_two_cta";
     if (href.indexOf("fault-lines.html") !== -1) return "view_book_two_cta";
     if (href.indexOf("book.html") !== -1) return "view_book_one_cta";
     if (href.indexOf("release-updates.html") !== -1 || href.indexOf("mailto:") === 0) return "release_update_intent";
@@ -18,7 +19,7 @@
     if (!link) return;
     var href = link.getAttribute("href") || "";
     var isOutbound = /^https?:\/\//i.test(href) && href.indexOf(location.hostname) === -1;
-    var isTrackedInternal = /fault-lines\.html|book\.html|release-updates\.html/.test(href);
+    var isTrackedInternal = /fault-lines\.html|book\.html|release-updates\.html|shop\.html#fault-lines/.test(href);
     if (!isOutbound && !isTrackedInternal && href.indexOf("mailto:") !== 0) return;
 
     if (typeof window.gtag === "function") {

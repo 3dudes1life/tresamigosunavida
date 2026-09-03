@@ -710,3 +710,29 @@ p { margin: 0 0 18px; }
 .breadcrumbs a{color:var(--ink-soft);text-decoration:none}
 .breadcrumbs [aria-current="page"]{color:var(--berry);font-weight:800}
 
+
+
+/* Book Two launch — September 2026 */
+.launch-purchase-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 900px;
+  margin: 28px auto 0;
+}
+.fault-shop-band {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255,255,255,.42), transparent 23%),
+    linear-gradient(135deg, #eaf8f5 0%, #fff7df 58%, #f8efe8 100%);
+}
+.fault-shop-surface {
+  border-color: rgba(15,111,115,.18);
+  box-shadow: 0 24px 70px rgba(15,63,69,.12);
+}
+.purchase-book-feature .cover {
+  max-width: 320px;
+}
+.purchase-book-feature .btn-row {
+  margin-top: 22px;
+}
+@media (max-width: 860px) {
+  .launch-purchase-grid { grid-template-columns: 1fr; }
+}
