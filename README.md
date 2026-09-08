@@ -32,7 +32,7 @@ Keep this exact filename and path when uploading to GitHub. The Book Two page, h
 ## Book Two page
 New public URL:
 
-`https://www.tresamigosunavida.com/fault-lines.html`
+`https://www.tresamigosunavida.com/fault-lines/`
 
 The page is intentionally spoiler-light until the final back-cover copy, release date, ISBNs, and buying links are locked.
 
@@ -40,6 +40,6 @@ The page is intentionally spoiler-light until the final back-cover copy, release
 ## Link-in-bio page
 The redesigned official links page is:
 
-`https://www.tresamigosunavida.com/links.html`
+`https://www.tresamigosunavida.com/links/`
 
 It is intentionally marked `noindex,follow` because it is a utility page for social profiles, not a page that should compete with the main book and series pages in Google.

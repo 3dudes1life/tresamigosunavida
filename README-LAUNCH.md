@@ -4,8 +4,8 @@
 - Google Analytics restored: `G-QS94RD8PPR`
 - outbound click events for Amazon, Etsy, Shopify, Instagram, Book One, Book Two, and release-update intent
 - accurate Fault Lines structured data with no false preorder claim
-- `/series.html` with BookSeries schema and reading order
-- `/release-updates.html` with owned email-intent flow and Instagram backup
+- `/series/` with BookSeries schema and reading order
+- `/release-updates/` with owned email-intent flow and Instagram backup
 - horizontal social preview images for homepage, Book One, Fault Lines, series, and authors
 - local Book One cover file
 - PWA manifest, icons, favicon, and Apple touch icon
@@ -23,7 +23,7 @@
 All are 1200 x 630 pixels.
 
 ## Release updates
-Until a dedicated OneSignal or email-form endpoint is supplied, `/release-updates.html` uses an owned email-intent button that opens a prewritten request to:
+Until a dedicated OneSignal or email-form endpoint is supplied, `/release-updates/` uses an owned email-intent button that opens a prewritten request to:
 
 `tresamigosunavida@gmail.com`
 

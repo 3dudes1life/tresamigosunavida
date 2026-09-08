@@ -17,9 +17,9 @@
 3. Confirm the Amazon and official-store links are still correct.
 4. Add the Google Search Console verification tag to every page template where indicated, or upload Google's HTML verification file to the site root.
 5. Do not restore the old hidden zero-font SEO link.
-6. Retire the old seo.html page. Best option: redirect it permanently to `/book.html`. If redirects are unavailable, replace it with a normal visible page containing:
+6. Retire the old seo.html page. Best option: redirect it permanently to `/book/`. If redirects are unavailable, replace it with a normal visible page containing:
    `<meta name="robots" content="noindex,follow">`
-   and a canonical link to `/book.html`.
+   and a canonical link to `/book/`.
 
 ## Google Search Console setup
 1. Open Google Search Console.
@@ -29,9 +29,9 @@
    `https://tresamigosunavida.com/sitemap.xml`
 5. Use URL Inspection on:
    - https://tresamigosunavida.com/
-   - https://tresamigosunavida.com/book.html
-   - https://tresamigosunavida.com/authors.html
-   - https://tresamigosunavida.com/shop.html
+   - https://tresamigosunavida.com/book/
+   - https://tresamigosunavida.com/authors/
+   - https://tresamigosunavida.com/shop/
 6. Click **Request indexing** for each page after the new site is live.
 7. Check **Pages**, **Sitemaps**, **Core Web Vitals**, and **Enhancements** weekly during the first month.
 
