@@ -1062,3 +1062,61 @@ p { margin: 0 0 18px; }
   .etsy-skeleton { min-height: 360px; }
   .etsy-product-footer { align-items: flex-end; }
 }
+
+
+/* === Etsy storefront polish v2.3 === */
+.etsy-product-image-link.is-cover-art {
+  display: grid;
+  place-items: center;
+  padding: 28px 34px;
+  background:
+    radial-gradient(circle at 50% 36%, rgba(255,255,255,.95), rgba(248,240,231,.96) 62%, rgba(241,231,221,.98));
+}
+
+.etsy-product-image.is-cover-art {
+  width: auto;
+  height: auto;
+  max-width: 72%;
+  max-height: 82%;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 18px 32px rgba(33,29,30,.18);
+}
+
+.etsy-product-card:hover .etsy-product-image.is-cover-art {
+  transform: translateY(-2px) scale(1.012);
+}
+
+.etsy-product-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.etsy-product-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.etsy-product-buy {
+  min-width: 124px;
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .etsy-product-image-link.is-cover-art {
+    padding: 24px 30px;
+  }
+
+  .etsy-product-image.is-cover-art {
+    max-width: 68%;
+    max-height: 80%;
+  }
+
+  .etsy-product-buy {
+    min-width: 0;
+  }
+}
