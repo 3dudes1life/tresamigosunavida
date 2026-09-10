@@ -87,12 +87,12 @@
 
   function cardActionLabel(traits) {
     if (traits.bookProduct) {
-      if (traits.bundle && traits.signed) return "Personalize Signed Set";
-      if (traits.bundle) return "Choose the Set";
-      if (traits.signed) return "Personalize & Buy";
-      return "Choose Paperback";
+      if (traits.bundle && traits.signed) return "Quick Shop";
+      if (traits.bundle) return "Quick Shop";
+      if (traits.signed) return "Quick Shop";
+      return "Quick Shop";
     }
-    if (traits.personalized) return "Personalize & Buy";
+    if (traits.personalized) return "Quick Shop";
     return "Quick Shop";
   }
 
@@ -471,7 +471,18 @@
     return section;
   }
 
-  function renderPersonalization(detail, traits, answers) {
+  function renderPersonalization(detail, traits) {
+    /*
+      We deliberately DO NOT collect personalization text on this website.
+      Etsy is the final commerce system, so asking the buyer to type it here
+      and then again on Etsy creates a confusing duplicate step.
+
+      Tres Amigos shop rule:
+      - signed books: personalization is available and completed on Etsy
+      - unsigned books: no personalization message at all
+      - other Etsy items: if Etsy marks them personalizable, explain that the
+        personalization is completed on Etsy
+    */
     if (traits.bookProduct && !traits.signed) {
       return null;
     }
@@ -480,193 +491,36 @@
       ? detail.personalization
       : [];
 
-    var shouldPersonalize =
-      traits.signed || (!traits.bookProduct && questions.length > 0);
+    var available =
+      traits.signed ||
+      (!traits.bookProduct && (traits.personalized || questions.length > 0));
 
-    if (!shouldPersonalize) return null;
+    if (!available) {
+      return null;
+    }
 
-    var section = el("div", "etsy-quick-personalization", "");
+    var section = el("div", "etsy-quick-personalization etsy-quick-personalization-note", "");
     section.appendChild(
       el(
         "h3",
         "",
-        traits.bookProduct ? "Personalize your signed book" : "Personalization"
+        traits.bookProduct
+          ? "Personalization available"
+          : "Personalization available"
       )
     );
 
-    if (!questions.length && traits.signed) {
-      section.appendChild(
-        el(
-          "p",
-          "etsy-quick-help",
-          "Personalization is available for this signed book. Etsy will show the final personalization field before you add it to your cart."
-        )
-      );
-      return section;
-    }
-
-    questions.forEach(function (question, index) {
-      var key = String(question.id || "q" + index);
-      var group = el("label", "etsy-quick-field", "");
-      var labelText =
-        decodeText(question.text) +
-        (question.required ? " *" : "");
-      group.appendChild(el("span", "etsy-quick-label", labelText));
-
-      if (question.instructions) {
-        group.appendChild(
-          el(
-            "span",
-            "etsy-quick-help",
-            decodeText(question.instructions)
-          )
-        );
-      }
-
-      if (question.type === "dropdown") {
-        var select = document.createElement("select");
-        select.className = "etsy-quick-select";
-        select.setAttribute("data-personalization-key", key);
-
-        var empty = document.createElement("option");
-        empty.value = "";
-        empty.textContent = "Choose an option";
-        select.appendChild(empty);
-
-        (question.options || []).forEach(function (option) {
-          var item = document.createElement("option");
-          item.value = decodeText(option.label);
-          item.textContent = decodeText(option.label);
-          select.appendChild(item);
-        });
-
-        select.required = Boolean(question.required);
-        select.addEventListener("change", function () {
-          answers[key] = {
-            label: decodeText(question.text),
-            value: select.value,
-            required: Boolean(question.required)
-          };
-        });
-        group.appendChild(select);
-      } else if (
-        question.type === "unlabeled_upload" ||
-        question.type === "labeled_upload"
-      ) {
-        group.appendChild(
-          el(
-            "div",
-            "etsy-quick-upload-note",
-            "Etsy requires this file upload to be completed on its site."
-          )
-        );
-        answers[key] = {
-          label: decodeText(question.text),
-          value: "Complete file upload on Etsy",
-          required: Boolean(question.required),
-          etsyOnly: true
-        };
-      } else {
-        var input = document.createElement("textarea");
-        input.className = "etsy-quick-textarea";
-        input.rows = 3;
-        input.placeholder = "Enter personalization";
-        input.required = Boolean(question.required);
-
-        if (question.maxCharacters) {
-          input.maxLength = question.maxCharacters;
-        }
-
-        var counter = el("span", "etsy-quick-counter", "");
-        function updateText() {
-          answers[key] = {
-            label: decodeText(question.text),
-            value: input.value.trim(),
-            required: Boolean(question.required)
-          };
-          if (question.maxCharacters) {
-            counter.textContent =
-              input.value.length +
-              " / " +
-              question.maxCharacters;
-          }
-        }
-
-        input.addEventListener("input", updateText);
-        updateText();
-
-        group.appendChild(input);
-        if (question.maxCharacters) group.appendChild(counter);
-      }
-
-      section.appendChild(group);
-    });
+    section.appendChild(
+      el(
+        "p",
+        "etsy-quick-help",
+        traits.bookProduct
+          ? "Add your personal message on Etsy before checkout."
+          : "Complete the personalization details on Etsy before checkout."
+      )
+    );
 
     return section;
-  }
-
-  function selectionSummary(detail, state, answers) {
-    var lines = ["Item: " + decodeText(detail.title)];
-
-    if (state.variant && state.variant.attributes) {
-      state.variant.attributes.forEach(function (attribute) {
-        if (attribute.value) {
-          lines.push(
-            decodeText(attribute.name) + ": " + decodeText(attribute.value)
-          );
-        }
-      });
-    }
-
-    lines.push("Quantity: " + state.quantity);
-
-    Object.keys(answers).forEach(function (key) {
-      var answer = answers[key];
-      if (answer && answer.value) {
-        lines.push(
-          decodeText(answer.label || "Personalization") +
-            ": " +
-            decodeText(answer.value)
-        );
-      }
-    });
-
-    return lines.join("\n");
-  }
-
-  function validatePersonalization(answers) {
-    var keys = Object.keys(answers);
-    for (var i = 0; i < keys.length; i += 1) {
-      var answer = answers[keys[i]];
-      if (
-        answer &&
-        answer.required &&
-        !answer.etsyOnly &&
-        !String(answer.value || "").trim()
-      ) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function copyChoices(text, messageNode) {
-    if (!text || !navigator.clipboard || !window.isSecureContext) {
-      return Promise.resolve(false);
-    }
-
-    return navigator.clipboard
-      .writeText(text)
-      .then(function () {
-        if (messageNode) {
-          messageNode.textContent =
-            "Your choices were copied. Etsy may ask you to confirm or paste them before payment.";
-        }
-        return true;
-      })
-      .catch(function () {
-        return false;
-      });
   }
 
   function renderQuickShop(detail, catalogListing) {
@@ -675,7 +529,6 @@
     content.innerHTML = "";
 
     var traits = listingTraits(detail);
-    var answers = {};
     var controls = {};
 
     var variants =
@@ -688,8 +541,7 @@
     });
 
     var state = {
-      variant: availableVariants[0] || variants[0] || null,
-      quantity: 1
+      variant: availableVariants[0] || variants[0] || null
     };
 
     var layout = el("div", "etsy-quick-layout", "");
@@ -748,30 +600,17 @@
 
     var availability = el("p", "etsy-quick-stock", "");
 
-    var quantityGroup = el("label", "etsy-quick-field", "");
-    quantityGroup.appendChild(
-      el("span", "etsy-quick-label", "Quantity")
-    );
-    var quantityInput = document.createElement("input");
-    quantityInput.className = "etsy-quick-quantity";
-    quantityInput.type = "number";
-    quantityInput.min = "1";
-    quantityInput.value = "1";
-    quantityGroup.appendChild(quantityInput);
-
-    var finalButton = el(
+    var buyButton = el(
       "a",
       "btn btn-dark etsy-quick-finish",
-      "Finish Securely on Etsy"
+      "Buy On Etsy"
     );
-    finalButton.href = detail.url || catalogListing.url;
-    finalButton.target = "_blank";
-    finalButton.rel = "sponsored noopener";
-
-    var clipboardMessage = el(
-      "p",
-      "etsy-quick-handoff-note",
-      "Etsy handles the final cart and payment. Because Etsy does not let this Seller App act as a shopper, Etsy will ask you to confirm any options or personalization there."
+    buyButton.href = detail.url || catalogListing.url;
+    buyButton.target = "_blank";
+    buyButton.rel = "sponsored noopener";
+    buyButton.setAttribute(
+      "aria-label",
+      "Buy On Etsy: " + decodeText(detail.title)
     );
 
     function updateCompatibility() {
@@ -806,7 +645,6 @@
 
     function updateState() {
       var matched = findVariantFromControls();
-
       if (matched) state.variant = matched;
 
       var stock = state.variant
@@ -824,26 +662,13 @@
         availability.textContent =
           stock <= 5 ? "Only " + stock + " left" : "In stock";
         availability.classList.remove("is-sold-out");
-        quantityInput.max = String(stock);
-        quantityInput.disabled = false;
-
-        if (Number(quantityInput.value || 1) > stock) {
-          quantityInput.value = String(stock);
-        }
-
-        state.quantity = Math.max(
-          1,
-          Math.min(stock, Number(quantityInput.value || 1))
-        );
-
-        finalButton.classList.remove("is-disabled");
-        finalButton.setAttribute("aria-disabled", "false");
+        buyButton.classList.remove("is-disabled");
+        buyButton.setAttribute("aria-disabled", "false");
       } else {
         availability.textContent = "This option is sold out";
         availability.classList.add("is-sold-out");
-        quantityInput.disabled = true;
-        finalButton.classList.add("is-disabled");
-        finalButton.setAttribute("aria-disabled", "true");
+        buyButton.classList.add("is-disabled");
+        buyButton.setAttribute("aria-disabled", "true");
       }
 
       updateCompatibility();
@@ -862,80 +687,39 @@
     }
 
     info.appendChild(availability);
-    info.appendChild(quantityGroup);
 
     var personalizationSection = renderPersonalization(
       detail,
-      traits,
-      answers
+      traits
     );
     if (personalizationSection) {
       info.appendChild(personalizationSection);
     }
 
-    quantityInput.addEventListener("input", function () {
-      var max = Number(quantityInput.max || detail.quantity || 1);
-      var value = Number(quantityInput.value || 1);
-      state.quantity = Math.max(1, Math.min(max, value));
-    });
-
     var actions = el("div", "etsy-quick-actions", "");
-    actions.appendChild(finalButton);
-
-    var copyButton = el(
-      "button",
-      "etsy-quick-copy",
-      "Copy My Choices"
-    );
-    copyButton.type = "button";
-    copyButton.addEventListener("click", function () {
-      copyChoices(
-        selectionSummary(detail, state, answers),
-        clipboardMessage
-      );
-    });
-    actions.appendChild(copyButton);
-
+    actions.appendChild(buyButton);
     info.appendChild(actions);
-    info.appendChild(clipboardMessage);
+
+    var handoffNote = el(
+      "p",
+      "etsy-quick-handoff-note",
+      optionsSection
+        ? "You’ll confirm your option and quantity on Etsy before payment."
+        : "You’ll confirm quantity on Etsy before payment."
+    );
+    info.appendChild(handoffNote);
 
     var trust = el(
       "p",
       "etsy-quick-trust",
-      "Your payment information never touches TresAmigosUnaVida.com. Etsy securely handles checkout."
+      "Secure checkout & payment handled by Etsy."
     );
     info.appendChild(trust);
 
-    finalButton.addEventListener("click", function (event) {
-      var disabled =
-        finalButton.getAttribute("aria-disabled") === "true";
-
-      if (disabled) {
+    buyButton.addEventListener("click", function (event) {
+      if (buyButton.getAttribute("aria-disabled") === "true") {
         event.preventDefault();
-        return;
       }
-
-      if (!validatePersonalization(answers)) {
-        event.preventDefault();
-        clipboardMessage.textContent =
-          "Please complete the required personalization field before continuing.";
-        var required = info.querySelector(
-          ".etsy-quick-personalization textarea:required:invalid, .etsy-quick-personalization select:required:invalid"
-        );
-        if (required) required.focus();
-        return;
-      }
-
-      /*
-        Best possible Seller App handoff:
-        Copy the exact choices so the buyer has them ready when Etsy asks
-        for its required final confirmation. We do NOT pretend selections
-        can be silently injected into Etsy checkout.
-      */
-      copyChoices(
-        selectionSummary(detail, state, answers),
-        clipboardMessage
-      );
     });
 
     updateState();
@@ -1007,7 +791,7 @@
           (data.listings.length === 1
             ? " live product"
             : " live products") +
-          " · quick shop here · final payment on Etsy";
+          " · Quick Shop here · checkout on Etsy";
       }
     })
     .catch(function () {
