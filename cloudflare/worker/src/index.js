@@ -5,6 +5,7 @@ const CATALOG_PATH = "/api/etsy/catalog";
 const LISTING_PATH_PREFIX = "/api/etsy/listing/";
 const CATALOG_CACHE_SECONDS = 900;
 const LISTING_CACHE_SECONDS = 900;
+const EDGE_SCHEMA_VERSION = "v28";
 
 const CSP = [
   "default-src 'self'",
@@ -223,6 +224,7 @@ function sanitizeListing(listing) {
     quantity: Number.isFinite(listing.quantity) ? listing.quantity : null,
     type: listing.listing_type || null,
     customizable: Boolean(listing.is_customizable || listing.is_personalizable),
+    sectionId: listing.shop_section_id || null,
     image: firstImage(listing),
     updated:
       listing.updated_timestamp ||
@@ -376,13 +378,55 @@ function sanitizeListingDetail(listing, inventory) {
   };
 }
 
+
+function sanitizeShopSection(section) {
+  return {
+    id: section.shop_section_id,
+    title: section.title || "Collection",
+    rank: Number.isFinite(section.rank) ? section.rank : 9999,
+    activeListingCount:
+      Number.isFinite(section.active_listing_count)
+        ? section.active_listing_count
+        : null
+  };
+}
+
+async function getShopSections(shopId, env) {
+  /*
+    Etsy calls collections "Shop Sections".
+    Reading them requires shops_r OAuth. If Etsy temporarily rejects or
+    fails this request, the storefront still returns its products and the
+    browser gracefully falls back to a single "Shop the Collection" row.
+  */
+  try {
+    const data = await scopedEtsyFetch(
+      `/shops/${shopId}/sections`,
+      env
+    );
+
+    return (data.results || [])
+      .map(sanitizeShopSection)
+      .filter((section) => section.id && section.title)
+      .sort((a, b) => {
+        if (a.rank !== b.rank) return a.rank - b.rank;
+        return String(a.title).localeCompare(String(b.title));
+      });
+  } catch (error) {
+    console.warn("Etsy Shop Sections unavailable; continuing without section metadata.", error);
+    return [];
+  }
+}
+
 async function buildCatalog(env) {
   const shop = await resolveShop(env);
 
-  const active = await publicEtsyFetch(
-    `/shops/${shop.shop_id}/listings/active?limit=100`,
-    env
-  );
+  const [active, sections] = await Promise.all([
+    publicEtsyFetch(
+      `/shops/${shop.shop_id}/listings/active?limit=100`,
+      env
+    ),
+    getShopSections(shop.shop_id, env)
+  ]);
 
   const ids = (active.results || [])
     .map((item) => item.listing_id)
@@ -395,6 +439,7 @@ async function buildCatalog(env) {
         name: shop.shop_name || ETSY_SHOP_NAME,
         url: `https://www.etsy.com/shop/${ETSY_SHOP_NAME}`
       },
+      sections,
       count: 0,
       listings: [],
       fetched_at: new Date().toISOString()
@@ -418,6 +463,7 @@ async function buildCatalog(env) {
       name: shop.shop_name || ETSY_SHOP_NAME,
       url: `https://www.etsy.com/shop/${ETSY_SHOP_NAME}`
     },
+    sections,
     count: listings.length,
     listings,
     fetched_at: new Date().toISOString()
@@ -475,6 +521,7 @@ async function handleCatalog(request, env, ctx) {
   const cache = caches.default;
   const cacheURL = new URL(request.url);
   cacheURL.search = "";
+  cacheURL.searchParams.set("__schema", EDGE_SCHEMA_VERSION);
   const cacheKey = new Request(cacheURL.toString(), { method: "GET" });
 
   const cached = await cache.match(cacheKey);
@@ -537,6 +584,7 @@ async function handleListingDetail(request, env, ctx, listingId) {
   const cache = caches.default;
   const cacheURL = new URL(request.url);
   cacheURL.search = "";
+  cacheURL.searchParams.set("__schema", EDGE_SCHEMA_VERSION);
   const cacheKey = new Request(cacheURL.toString(), { method: "GET" });
 
   const cached = await cache.match(cacheKey);

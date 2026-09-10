@@ -422,3 +422,197 @@ body.etsy-quick-shop-open {
     min-width: 0;
   }
 }
+
+
+/* =========================================================
+   v2.8 — Featured Books + Etsy Shop Sections
+   ========================================================= */
+
+#etsy-live-catalog {
+  display: block;
+}
+
+.etsy-featured-books {
+  margin: 8px 0 54px;
+}
+
+.etsy-section-heading {
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+
+.etsy-section-heading h2,
+.etsy-collection-row-heading h2 {
+  margin: 3px 0 8px;
+}
+
+.etsy-section-intro {
+  margin: 0;
+  color: #74696b;
+  line-height: 1.6;
+}
+
+.etsy-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Books are intentionally a little more substantial than merch cards. */
+.etsy-product-card.is-featured-book {
+  height: 100%;
+  border: 1px solid rgba(170, 53, 91, .13);
+  box-shadow: 0 16px 45px rgba(74, 42, 38, .10);
+}
+
+.etsy-product-card.is-featured-book .etsy-product-image-link {
+  min-height: 320px;
+}
+
+.etsy-product-card.is-featured-book.is-single-book .etsy-product-image.is-cover-art {
+  max-width: 56% !important;
+  max-height: 76% !important;
+}
+
+.etsy-collections-area {
+  padding-top: 38px;
+  border-top: 1px solid rgba(33, 29, 30, .10);
+}
+
+.etsy-collection-nav {
+  position: sticky;
+  top: 10px;
+  z-index: 12;
+  display: flex;
+  gap: 9px;
+  margin: 4px -4px 34px;
+  padding: 8px 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: rgba(255, 249, 239, .88);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.etsy-collection-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.etsy-collection-chip {
+  flex: 0 0 auto;
+  padding: 10px 15px;
+  border: 1px solid rgba(33, 29, 30, .11);
+  border-radius: 999px;
+  background: #fff;
+  color: #30292a;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 5px 16px rgba(61, 42, 39, .06);
+}
+
+.etsy-collection-chip:hover {
+  color: #aa355b;
+  border-color: rgba(170, 53, 91, .24);
+  transform: translateY(-1px);
+}
+
+.etsy-collection-section {
+  scroll-margin-top: 92px;
+  margin: 0 0 48px;
+}
+
+.etsy-collection-row-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.etsy-collection-count {
+  flex: 0 0 auto;
+  margin-bottom: 7px;
+  color: #817674;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.etsy-collection-scroller-wrap {
+  position: relative;
+}
+
+.etsy-collection-scroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(255px, 300px);
+  gap: 17px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline proximity;
+  scrollbar-width: thin;
+  padding: 2px 2px 18px;
+}
+
+.etsy-product-card.is-collection-card {
+  scroll-snap-align: start;
+  min-width: 0;
+  height: 100%;
+}
+
+.etsy-product-card.is-collection-card .etsy-product-image-link {
+  min-height: 255px;
+}
+
+/* The books never appear in the lower collection rows; JS filters them out. */
+
+@media (max-width: 980px) {
+  .etsy-featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .etsy-featured-books {
+    margin-bottom: 42px;
+  }
+
+  .etsy-featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .etsy-product-card.is-featured-book .etsy-product-image-link {
+    min-height: 240px;
+  }
+
+  .etsy-product-card.is-featured-book.is-single-book .etsy-product-image.is-cover-art {
+    max-width: 62% !important;
+    max-height: 78% !important;
+  }
+
+  .etsy-collection-nav {
+    top: 4px;
+    margin-bottom: 26px;
+  }
+
+  .etsy-collection-scroller {
+    grid-auto-columns: minmax(235px, 80vw);
+    gap: 13px;
+  }
+
+  .etsy-collection-row-heading {
+    align-items: start;
+  }
+}
+
+@media (max-width: 430px) {
+  .etsy-featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .etsy-product-card.is-featured-book .etsy-product-image-link {
+    min-height: 300px;
+  }
+}

@@ -152,7 +152,7 @@
     });
   }
 
-  function makeCard(listing) {
+  function makeCard(listing, displayMode) {
     var traits = listingTraits(listing);
     var titleText = decodeText(listing.title);
     var descriptionText = decodeText(listing.description);
@@ -160,6 +160,8 @@
     var image = preferredImage(listing, traits);
 
     var cardClass = "etsy-product-card";
+    if (displayMode === "featured") cardClass += " is-featured-book";
+    if (displayMode === "collection") cardClass += " is-collection-card";
     if (traits.bookProduct) cardClass += " is-book-product";
     if (traits.bundle) cardClass += " is-bundle";
     if (traits.singleBook) cardClass += " is-single-book";
@@ -728,6 +730,297 @@
     content.appendChild(layout);
   }
 
+
+  function bookFeatureOrder(listing) {
+    var traits = listingTraits(listing);
+    if (!traits.bookProduct) return 9999;
+
+    var isBookOne = !traits.faultLines;
+    var score = 0;
+
+    /*
+      Featured order:
+      Book One unsigned
+      Fault Lines unsigned
+      unsigned two-book sets
+      Book One signed
+      Fault Lines signed
+      signed two-book sets
+      then any future book-format products.
+    */
+    if (traits.bundle && !traits.signed) score = 30;
+    else if (traits.bundle && traits.signed) score = 60;
+    else if (isBookOne && !traits.signed) score = 10;
+    else if (traits.faultLines && !traits.signed) score = 20;
+    else if (isBookOne && traits.signed) score = 40;
+    else if (traits.faultLines && traits.signed) score = 50;
+    else score = 70;
+
+    return score;
+  }
+
+  function sortFeaturedBooks(listings) {
+    return listings.slice().sort(function (a, b) {
+      var orderA = bookFeatureOrder(a);
+      var orderB = bookFeatureOrder(b);
+
+      if (orderA !== orderB) return orderA - orderB;
+
+      return decodeText(a.title).localeCompare(
+        decodeText(b.title)
+      );
+    });
+  }
+
+  function slugForSection(section) {
+    return (
+      "etsy-section-" +
+      String(section.id || section.title || "collection")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+    );
+  }
+
+  function sectionHeader(kicker, title, copy) {
+    var header = el("div", "etsy-section-heading", "");
+    header.appendChild(el("p", "kicker", kicker));
+    header.appendChild(el("h2", "", title));
+
+    if (copy) {
+      header.appendChild(
+        el("p", "etsy-section-intro", copy)
+      );
+    }
+
+    return header;
+  }
+
+  function renderFeaturedBooks(listings) {
+    var books = sortFeaturedBooks(
+      listings.filter(function (listing) {
+        return listingTraits(listing).bookProduct;
+      })
+    );
+
+    if (!books.length) return null;
+
+    var section = el(
+      "section",
+      "etsy-featured-books",
+      ""
+    );
+    section.id = "featured-books";
+
+    section.appendChild(
+      sectionHeader(
+        "Start With The Story",
+        "Featured Books",
+        "Book One, Fault Lines, signed editions, and bundles stay right here at the top."
+      )
+    );
+
+    var grid = el("div", "etsy-featured-grid", "");
+    books.forEach(function (listing) {
+      grid.appendChild(makeCard(listing, "featured"));
+    });
+
+    section.appendChild(grid);
+    return section;
+  }
+
+  function collectionRows(listings, sections) {
+    var merchandise = listings.filter(function (listing) {
+      return !listingTraits(listing).bookProduct;
+    });
+
+    if (!merchandise.length) {
+      return [];
+    }
+
+    var sectionMap = {};
+    (sections || []).forEach(function (section) {
+      sectionMap[String(section.id)] = {
+        section: section,
+        listings: []
+      };
+    });
+
+    var unsectioned = [];
+
+    merchandise.forEach(function (listing) {
+      var key = listing.sectionId
+        ? String(listing.sectionId)
+        : "";
+
+      if (key && sectionMap[key]) {
+        sectionMap[key].listings.push(listing);
+      } else {
+        unsectioned.push(listing);
+      }
+    });
+
+    var rows = (sections || [])
+      .map(function (section) {
+        return sectionMap[String(section.id)];
+      })
+      .filter(function (entry) {
+        return entry && entry.listings.length;
+      });
+
+    if (unsectioned.length) {
+      rows.push({
+        section: {
+          id: "other",
+          title: rows.length ? "More From Tres Amigos" : "Shop The Collection",
+          rank: 99999
+        },
+        listings: unsectioned
+      });
+    }
+
+    /*
+      If Etsy has no Shop Sections yet, everything simply becomes one
+      collection row. As soon as sections are created in Etsy, the next
+      API refresh automatically reorganizes the page.
+    */
+    if (!rows.length && merchandise.length) {
+      rows.push({
+        section: {
+          id: "all",
+          title: "Shop The Collection",
+          rank: 99999
+        },
+        listings: merchandise
+      });
+    }
+
+    return rows;
+  }
+
+  function renderCollectionNavigation(rows) {
+    if (!rows.length) return null;
+
+    var wrap = el(
+      "nav",
+      "etsy-collection-nav",
+      ""
+    );
+    wrap.setAttribute("aria-label", "Shop collections");
+
+    rows.forEach(function (row) {
+      var link = el(
+        "a",
+        "etsy-collection-chip",
+        decodeText(row.section.title)
+      );
+      link.href = "#" + slugForSection(row.section);
+      wrap.appendChild(link);
+    });
+
+    return wrap;
+  }
+
+  function renderCollectionRow(row) {
+    var section = el(
+      "section",
+      "etsy-collection-section",
+      ""
+    );
+    section.id = slugForSection(row.section);
+
+    var heading = el(
+      "div",
+      "etsy-collection-row-heading",
+      ""
+    );
+
+    var titleWrap = el("div", "", "");
+    titleWrap.appendChild(
+      el("p", "kicker", "Shop The Collection")
+    );
+    titleWrap.appendChild(
+      el("h2", "", decodeText(row.section.title))
+    );
+
+    heading.appendChild(titleWrap);
+    heading.appendChild(
+      el(
+        "span",
+        "etsy-collection-count",
+        row.listings.length +
+          (row.listings.length === 1 ? " item" : " items")
+      )
+    );
+
+    section.appendChild(heading);
+
+    var scrollerWrap = el(
+      "div",
+      "etsy-collection-scroller-wrap",
+      ""
+    );
+
+    var scroller = el(
+      "div",
+      "etsy-collection-scroller",
+      ""
+    );
+
+    row.listings.forEach(function (listing) {
+      scroller.appendChild(
+        makeCard(listing, "collection")
+      );
+    });
+
+    scrollerWrap.appendChild(scroller);
+    section.appendChild(scrollerWrap);
+
+    return section;
+  }
+
+  function renderCatalog(data) {
+    root.classList.remove("is-loading");
+    root.innerHTML = "";
+
+    var listings = data.listings || [];
+    var sections = Array.isArray(data.sections)
+      ? data.sections
+      : [];
+
+    var featured = renderFeaturedBooks(listings);
+    if (featured) root.appendChild(featured);
+
+    var rows = collectionRows(listings, sections);
+
+    if (rows.length) {
+      var collectionArea = el(
+        "div",
+        "etsy-collections-area",
+        ""
+      );
+
+      collectionArea.appendChild(
+        sectionHeader(
+          "Beyond The Books",
+          "Shop The Collection",
+          "Collections below stay synced with the sections in our Etsy shop."
+        )
+      );
+
+      var nav = renderCollectionNavigation(rows);
+      if (nav) collectionArea.appendChild(nav);
+
+      rows.forEach(function (row) {
+        collectionArea.appendChild(
+          renderCollectionRow(row)
+        );
+      });
+
+      root.appendChild(collectionArea);
+    }
+  }
+
   function fallback(message) {
     root.classList.remove("is-loading");
     root.innerHTML = "";
@@ -778,19 +1071,21 @@
         return;
       }
 
-      root.classList.remove("is-loading");
-      root.innerHTML = "";
-
-      data.listings.forEach(function (listing) {
-        root.appendChild(makeCard(listing));
-      });
+      renderCatalog(data);
 
       if (status) {
+        var sectionCount = Array.isArray(data.sections)
+          ? data.sections.length
+          : 0;
+
         status.textContent =
           data.listings.length +
           (data.listings.length === 1
             ? " live product"
             : " live products") +
+          (sectionCount
+            ? " · " + sectionCount + " Etsy collections synced"
+            : "") +
           " · Quick Shop here · checkout on Etsy";
       }
     })
