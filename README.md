@@ -7,7 +7,7 @@ This package replaces the current GitHub Pages website.
 - Responsive menu with no JavaScript dependency
 - Cache-busted stylesheet reference
 - Homepage, book, author, press, store, and 404 pages
-- Amazon, Etsy, and Shopify buying links
+- Amazon and Etsy buying links
 - SEO metadata, canonical URLs, Open Graph, Twitter cards, and schema
 - robots.txt and sitemap.xml
 - CNAME and .nojekyll for GitHub Pages
@@ -43,3 +43,13 @@ The redesigned official links page is:
 `https://www.tresamigosunavida.com/links/`
 
 It is intentionally marked `noindex,follow` because it is a utility page for social profiles, not a page that should compete with the main book and series pages in Google.
+
+
+## Secure Etsy + Cloudflare edge (v2)
+- GitHub Pages remains the website origin and normal update workflow.
+- Cloudflare Worker middleware adds security headers across the public site.
+- `/api/etsy/catalog` privately reads active Etsy listings and caches them at the edge.
+- `/shop/` renders the current Etsy catalog directly on the book website while checkout stays on Etsy.
+- Etsy credentials are Cloudflare Worker secrets and must never be committed to GitHub.
+
+Run `VERIFY_TRES_AMIGOS_V2.command`, then `DEPLOY_TRES_AMIGOS_V2.command`, then run `SETUP_CLOUDFLARE.command` once.

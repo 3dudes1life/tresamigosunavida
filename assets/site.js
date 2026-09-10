@@ -5,7 +5,6 @@
     var href = (link.href || "").toLowerCase();
     if (href.indexOf("amazon.com") !== -1) return "click_amazon";
     if (href.indexOf("etsy.com") !== -1) return "click_etsy";
-    if (href.indexOf("shopify.com") !== -1) return "click_shopify";
     if (href.indexOf("instagram.com") !== -1) return "click_instagram";
     if (href.indexOf("shop/#fault-lines") !== -1) return "buy_book_two_cta";
     if (href.indexOf("fault-lines/") !== -1) return "view_book_two_cta";

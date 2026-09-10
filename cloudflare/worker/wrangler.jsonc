@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tres-amigos-una-vida-edge",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-10",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "www.tresamigosunavida.com/*",
+      "zone_name": "tresamigosunavida.com"
+    }
+  ]
+}

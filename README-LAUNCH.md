@@ -2,7 +2,7 @@
 
 ## Major additions
 - Google Analytics restored: `G-QS94RD8PPR`
-- outbound click events for Amazon, Etsy, Shopify, Instagram, Book One, Book Two, and release-update intent
+- outbound click events for Amazon, Etsy, Instagram, Book One, Book Two, and release-update intent
 - accurate Fault Lines structured data with no false preorder claim
 - `/series/` with BookSeries schema and reading order
 - `/release-updates/` with owned email-intent flow and Instagram backup

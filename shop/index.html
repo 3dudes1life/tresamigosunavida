@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/assets/styles.css?v=20260908-cleanurls3">
+<link rel="stylesheet" href="/assets/styles.css?v=20260910-secure-etsy-v2">
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -44,8 +44,7 @@
   "sameAs": [
     "https://www.amazon.com/Tres-Amigos-Una-Vida-Throuple-ebook/dp/B0F98W6S5N",
     "https://www.etsy.com/shop/TresAmigosUnaVida",
-    "https://www.amazon.com/dp/B0HG95DL98",
-    "https://outatinc.myshopify.com/collections/tres-amigos-una-vida"
+    "https://www.amazon.com/dp/B0HG95DL98"
   ]
 }</script>
 
@@ -101,6 +100,23 @@
     </div>
   </section>
 
+  <section class="section etsy-storefront-section" id="official-etsy-shop">
+    <div class="shell">
+      <div class="etsy-storefront-head">
+        <p class="kicker">Official Storefront</p>
+        <h2>Shop Tres Amigos, Una Vida</h2>
+        <p class="lead">Browse the live Etsy collection right here—signed books, unsigned books, bundles, and anything new we add to the shop.</p>
+        <p class="etsy-catalog-status" id="etsy-catalog-status">Loading the live Etsy shelf…</p>
+      </div>
+      <div class="etsy-live-catalog is-loading" id="etsy-live-catalog" aria-live="polite">
+        <div class="etsy-skeleton" aria-hidden="true"></div>
+        <div class="etsy-skeleton" aria-hidden="true"></div>
+        <div class="etsy-skeleton" aria-hidden="true"></div>
+      </div>
+      <p class="etsy-api-disclosure">The term “Etsy” is a trademark of Etsy, Inc. This site uses Etsy’s API but is not endorsed or certified by Etsy.</p>
+    </div>
+  </section>
+
   <section class="section" id="book-one">
     <div class="shell">
       <div class="surface two-col purchase-book-feature">
@@ -109,11 +125,10 @@
           <p class="kicker">Book One · Available Now</p>
           <h2>Tres Amigos, Una Vida</h2>
           <p class="lead">Start Michael, Juan, and Christopher’s story with the original novel.</p>
-          <p>Choose Kindle and available print formats on Amazon, signed copies on Etsy, or browse the official collection.</p>
+          <p>Choose Kindle and available print formats on Amazon, or shop signed and unsigned books, bundles, and official merchandise through our Etsy shop.</p>
           <div class="btn-row">
             <a class="btn btn-dark" href="https://www.amazon.com/Tres-Amigos-Una-Vida-Throuple-ebook/dp/B0F98W6S5N" rel="sponsored noopener">Amazon</a>
-            <a class="btn" href="https://www.etsy.com/shop/TresAmigosUnaVida" rel="sponsored noopener">Etsy</a>
-            <a class="btn btn-dark" href="https://outatinc.myshopify.com/collections/tres-amigos-una-vida" rel="sponsored noopener">Official Shop</a>
+            <a class="btn" href="https://www.etsy.com/shop/TresAmigosUnaVida" rel="sponsored noopener">Shop on Etsy</a>
           </div>
         </article>
       </div>
@@ -240,6 +255,7 @@
   </div>
 </footer>
 
+<script src="/assets/etsy-store.js?v=20260910-secure-etsy-v2" defer></script>
 <script src="/assets/site.js?v=20260908-cleanurls3"></script>
 </body>
 </html>
