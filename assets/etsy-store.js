@@ -1004,7 +1004,7 @@
         sectionHeader(
           "Beyond The Books",
           "Shop The Collection",
-          "Collections below stay synced with the sections in our Etsy shop."
+          "Browse the rest of the collection by category."
         )
       );
 
@@ -1084,9 +1084,9 @@
             ? " live product"
             : " live products") +
           (sectionCount
-            ? " · " + sectionCount + " Etsy collections synced"
+            ? " · " + sectionCount + " collections"
             : "") +
-          " · Quick Shop here · checkout on Etsy";
+          " · Quick Shop available · secure checkout by Etsy";
       }
     })
     .catch(function () {

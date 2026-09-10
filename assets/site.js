@@ -6,7 +6,7 @@
     if (href.indexOf("amazon.com") !== -1) return "click_amazon";
     if (href.indexOf("etsy.com") !== -1) return "click_etsy";
     if (href.indexOf("instagram.com") !== -1) return "click_instagram";
-    if (href.indexOf("shop/#fault-lines") !== -1) return "buy_book_two_cta";
+    if (href.indexOf("/shop/") !== -1 || href.endsWith("tresamigosunavida.com/shop/")) return "shop_cta";
     if (href.indexOf("fault-lines/") !== -1) return "view_book_two_cta";
     if (href.indexOf("book/") !== -1) return "view_book_one_cta";
     if (href.indexOf("release-updates/") !== -1 || href.indexOf("mailto:") === 0) return "release_update_intent";
@@ -18,7 +18,7 @@
     if (!link) return;
     var href = link.getAttribute("href") || "";
     var isOutbound = /^https?:\/\//i.test(href) && href.indexOf(location.hostname) === -1;
-    var isTrackedInternal = /fault-lines\/|book\/|release-updates\/|shop\/#fault-lines/.test(href);
+    var isTrackedInternal = /fault-lines\/|book\/|shop\//.test(href);
     if (!isOutbound && !isTrackedInternal && href.indexOf("mailto:") !== 0) return;
 
     if (typeof window.gtag === "function") {
